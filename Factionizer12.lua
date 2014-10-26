@@ -1,4 +1,4 @@
-------5.04.00.7.2 14.4.27------------------
+-----------------------------------
 -- _12_ reputation Changes to chat
 -----------------------------------
 function FIZ_DumpReputationChangesToChat(initOnly)
