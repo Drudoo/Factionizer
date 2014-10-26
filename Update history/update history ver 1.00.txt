@@ -1,0 +1,12 @@
+On August 10 2007 john.ra reported in alt.games.warcraft the URL of
+the following reputation calculator.
+
+	http://reputation.mygamesonline.org/
+
+I thought it was awseome. Unfortunately it went offline for quite some time
+due to over-traffic and during that time I had the idea that it would be
+very neat to have something like this, especially considering that the
+information to calculate everything was more or less available from the
+WoWWiki faction pages.
+
+Urbin, Dun-Morogh (EU)

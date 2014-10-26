@@ -1,0 +1,154 @@
+Version history ver 2
+---------------
+
+20400.8
+- fixed heroic slave pens and underbog not being listed as giving rep for
+  CE when revered in locales other than deDE (reported by CYPSYAN)
+- reduced rep for Multiphase Survey from 250 to 150 (reported by Elvenblood)
+- fixed heroic ramparts & blood furnace being available at honored
+- fixed sethek halls and auchenai crypt availability
+- fixed heroic shadow lab reputation
+
+20400.7
+- added Nagrand PvP Quests (reported by CYPSYAN)
+- name of phase 4c fixed
+- localised some phases in german
+- added possibility to exclude some quests from the summary in order to better
+  show how long it takes to the next reputation level if one does not do all
+  daily quests (suggested by Tony M)
+
+20400.6
+- fixed some of the deDE localisations of faction names
+  (based on data provided by Hatryn)
+- full deDE localisation of all quest/mob/item data (using www.buffed.de)
+
+20400.5
+- now showing active quests in colour so it should be easier to
+  estimate how much reputation you're likely to get when finishing
+  them
+- changed header in Blizzard's reputation window from "(Missing)"
+  to "(to next)" (in the german localisation from "(Fehlend)" to
+  "(zur nächsten)" as this caused a lot of confusion (people thought
+  it was an error message
+- made chat frame to which messages are printed configurable (suggested
+  by dylanparry)
+
+20400.4
+- updated Shattari Skyguard reputation gains (reported by Samrec)
+
+20400.3
+- fixed bug when displaying status (reported by Linmaris)
+- fixed german localisation (umlauts to UTF) (reported by Linmaris)
+
+20400.2
+- filtering quests for Shattered Sun Offensive based on phase
+- fixed bug that disallowed expanding the "Inactive" reputation group
+
+20400.1
+- added Shattered Sun Offensive reputation
+- "Uncataloged Species" now only listed to give Cenarion Expedition until
+  honoured (reported by hohner)
+- updated TOC for patch 2.4.0
+- added possibility to list all addons by Urbin
+
+20300.2
+- fixed FIZ_Entries nil exception (reported by Eanon)
+
+20300.2
+- tooltip now shows how long a quest/instance/mob/item yields reputation
+- updated frostsaber rep (reported by sir-markus)
+- corrected incorrect help display (reported by Ken)
+- reputation for WSG and AB wins (reported by Brutalisdk)
+- added #Note keyword to TOC for WoWUiUpdater (suggested by Chmee)
+- added "/fz de" command to show german standing names for people like
+  me who are playing on a german speaking realm using an english client
+- fixed spelling for various item names
+- added Tanaris pirates who give steamwheedle cartel rep
+- added coilfang reservoir instance rep gains
+- added Sporeggar rep mobs
+- added rep for various heroic instances
+
+20300.1
+- added new instances and mobs for some outland factions
+
+20300.1
+- fixed TOC for patch 2.3.0
+
+20200.5
+- added possibility to sort reputation frame by standing
+
+20200.4
+- doubled Timbermaw Hold, Cenarion Circle, Argent Dawn Reputation (patch 2.2)
+- Fixed various typos in quest names
+- added /fz list <standing> command to show all factions with which you have
+  a certain standing
+
+20200.3
+- showing reputation in bags, bank and completed quests as a small grey bar
+  in the reputation window
+- fixed various quest names
+- localised the options button
+- completed tooltips for options
+
+20200.2
+- adjusted reputation from 250 to 350 of "The Relic's Emanation"
+- added consideration of completed (non-item) quests
+- added buttons to collapse / expand all entries
+- added buttons to show / hide all types of reputation gain methods
+- improved displayed list (showing items carried that can be used in list)
+- added key binding to open reputation window and reputation detail window
+  at the same time
+
+20200.1
+- fixed TOC for patch 2.2.0
+- detail frame is now showing experience gained in the current session
+- added slash commands to enable/disable settings
+- fixed suppressing of original chat messages (works now)
+
+20103.7
+- now showing "preview" reputation available due to bag and bank contents
+  (suggested by LoTekGuru and ASKF)
+- added repeatable AV PvP and old world main faction quests
+- added 10% bonus for Humans (reported by CatrionaR)
+- added Scryer, Aldor and Sha'tar single mark turn-ins (reported by CatrionaR)
+- extended tooltip to show details for each way to gain reputation
+
+20103.6.1
+- fixed typo in FIZ_DumpReputationChangesToChat()
+
+20103.6
+- added missing tooltips for option window
+- removed dummy entries for Ironforge
+- added key binding to open options
+
+20103.5
+- Showing spillover reputation (reputation gained for all factions), when
+  any reputation is gained at all (suggested by CatrionaR)
+- added configuration options
+
+20103.4
+- All Factions but "Syndicate" localised in deDE. The Addon will now work
+  with the German client, even though the hints will contain the English
+  names of quests, instances and items
+- fixed some flaws in the German localisation.
+
+20103.3
+- added checkboxes to filter Q/D/M/I information
+- added text to indicate if no information for a faction is available
+- prepared code for localisation
+- fixed a bug where the detail window was not updated when reputation
+  values changed
+- German localisation of output texts done (but still missing faction
+  names, so the German version won't work; also, still missing German
+  texts for all the data)
+
+20103.2
+- added items category
+- added limits
+- extended reputation window with missing reputation
+- /fz displays selected or watched faction info if not faction name is
+  specified
+
+
+20103.1
+- first version

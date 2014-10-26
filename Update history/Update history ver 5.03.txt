@@ -1,0 +1,57 @@
+My updates
+ver 5.03.00 13.08.03
+*added garbage collection to the startup (7.4 to 3.4)
+*adding locals
+*separating reputation detail frame from the main and OBS to compress differences
+
+ver 5.03.00 13.07.17
+*change tables in OBS as an effort to fix if
+*adding locals
+
+ver 5.03.00 13.07.06
+*change tables to reduce memory usage (hopefully)
+**FIZ_GetReadyReputation(factionIndex)
+*adding locals
+
+ver 5.03.00 13.06.29
+*change tables to reduce memory usage (hopefully)
+**Faction Lists
+*temp disabled OBS till I can fix it
+*adding locals
+
+ver 5.03.00 13.06.20
+*general changes
+*adding locals
+
+ver 5.03.00 13.06.05
+*fixed the about section
+*added italian, korean, and the 2 chinese
+
+ver 5.03.00 13.06.01
+*started Italian
+*fixed section in locals
+
+ver 5.03.00 13.05.30
+*commented all debug statements
+*and commented fragged German section will not affect game play
+
+ver 5.03.00 13.05.29.beta
+*I have got faction localization working
+*all but mobs working now just cleaning
+*reworking local in _09_ Faction gain
+
+ver 5.03.00 13.05.28.beta.1
+*making movement have beleve I have found the way of getting local faction working
+*added local count var in content loads
+
+ver 5.03.00 13.05.26.beta
+*making movement have two debugs active to compare faction names
+
+ver 5.03.00 13.05.24.beta
+*starting to make internal localization in beta till I get it working right :( 
+
+ver 5.03.00 13.05.22
+*total reset to ver 5.02.00 13.04.30
+
+ver 5.02.00 13.05.10
+*removed mapping files for individual localization now internal

@@ -1,0 +1,14 @@
+## Interface: 60000
+## Title: Factionizer
+## Version: 6.0.0-alpha
+## Author: gOOvER (Scheol), Alleria-EU
+## URL: http://wow.curseforge.com/addons/factionizer/
+## Description: Tells you what you can do to improve your faction
+## Notes: Tells you what you can do to improve your factions
+## SavedVariables: FIZ_Data
+## SavedVariablesPerCharacter: FIZ_Suppressed
+
+Content.lua
+Locale\Locale.xml
+Mapping.lua
+Factionizer.xml

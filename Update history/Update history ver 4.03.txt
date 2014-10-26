@@ -1,0 +1,26 @@
+ver 04.03.00.01 - 12.07.28
+*just made a change in the toc
+
+ver 04.03.00 -1st upload by a_nolan
+12.07.01
+*below is the list of updates i'v made with Factionizer 2 now uploaded here
+
+12.06.29
+*have removed sso phaseing
+
+12.06.12
+*few minor fixes hope all for a few days :)
+
+12.06.10
+*fixed commented sso lines no swatter errors
+
+12.06.09
+*got sso held off hope to be able to take it out next time
+
+12.06.06-9 
+*getting the bugs out
+
+12.06.05
+*gOOvER said on curse that he has stopped supporting this add-on
+*Darkmoon Fair quests to English
+* profession recognition

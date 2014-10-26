@@ -1,0 +1,88 @@
+Ver 05.02
+ver 5.02.00 13.05.10
+*removed mapping files for individual localization now internal 
+
+ver 5.02.00 13.05.06
+*added faction ripping :)
+*continuing rewrite
+
+ver 5.02.00 13.05.04 beta
+*added quest ripping :)
+*starting rewrite
+
+ver 5.02.00 13.04.30
+*general translation update
+*fix problem with loading 3rd-5th language
+
+ver 5.02.00 13.04.24
+*started Brazilian Portuguese thanks to Zakhai
+*finished The August Celestials
+*general translation update
+*translation updates for Brazilian Portuguese
+
+ver 5.02.00 13.04.23
+*general translation update
+
+ver 5.02.00 13.04.21
+*general translation update
+
+ver 5.02.00 13.04.17
+*quick fix sorry
+
+ver 5.02.00 13.04.16
+*deleted guild cap (will work on other rep gain)
+
+ver 5.02.00 13.04.14
+Done with
+*Alliance Vanguard/Horde Expedition
+*Aliance side of Twilight Highlands
+*Tol Barad
+*The August Celestials
+*Order of the Cloud Serpents
+
+Starting The Klaxxi
+
+ver 5.02.00 13.04.12
+*The August Celestials english done working on others
+*Order of the Cloud Serpents adding
+*Anglers adding to
+*Tillers Group adding to
+
+ver 5.02.00 13.04.10
+*Order of the Cloud Serpents completed
+
+ver 5.02.00 13.04.09
+*Anglers completed
+*few others fixed
+
+ver 5.02.00 13.04.08
+*Tillers Group completed
+
+ver 5.02.00 13.04.05
+*Grand commindations
+*lfg rep star
+yes i am stupid and i am sorry @Caraxe on curse thank you for the simple fix it has been uploaded now i have been looking for a hard fix and just did not read all the comments so i hope all of you will forgive me i am usually working on it at night and tired (not an excuse just a reason) but thank all of you for not dropping me *bow bow bow*
+
+ver 5.02.00 13.03.28.5
+*nothing
+
+ver 05.02.00 13.03.21
+*added more to black prince
+*cleaed up a little more of the quests
+
+ver 05.02.00 13.03.12
+*fixed the fix of the fix it should work now
+
+ver 05.02.00 13.03.11
+*fixed the human fix (swar it worked)
+
+ver 05.02.00 13.03.09
+*fixed the origbarvalue error
+*added some of the  new thunder isle dailies
+*human faction error (was told about it)
+
+ver 05.02.00 13.03.05
+*toc updated
+*faction maps updated
+*content updating for quicker updates
+still looks messy till i figure out how to fix it
