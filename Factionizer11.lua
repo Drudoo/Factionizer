@@ -1,5 +1,5 @@
 -----------------------------------
--- _11_ Prepare update entries   --
+-- _11_ Prepare update entries	 --
 -----------------------------------
 function FIZ_ParseBagContent()
 	--fpt hed f_pbc	FIZ_Printtest("","","f_pbc 1")
@@ -111,7 +111,7 @@ function FIZ_BuildUpdateList() --xxx
 				if (fg_sid.instance and FIZ_Data.ShowInstances) then
 					local fg_sid_x=fg_sid.instance
 					for i = 0, fg_sid.instance.count do
-					local fg_sid_x_d=fg_sid_x.data[i]
+						local fg_sid_x_d=fg_sid_x.data[i]
 						if (not fg_sid_x_d.limit or (normCurrent < fg_sid_x_d.limit)) then
 							local toDo = string.format("%.2f", repToNext / fg_sid_x_d.rep)
 							if (fg_sid_x_d.limit) then
@@ -259,411 +259,115 @@ function FIZ_BuildUpdateList() --xxx
 					local fg_sid_x=fg_sid.quests
 					for i = 0, fg_sid_x.count do
 					local fg_sid_x_d=fg_sid_x.data[i]
-						local showQuest = true
-					    	if (fg_sid_x_d.profession) then
+					local showQuest = true
+					if (fg_sid_x_d.profession) then
 						local fg_sid_x_d_p=fg_sid_x_d.profession
-						    	if ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Herb) and not FIZ_Herb) then
-						    		-- if list of known professions does not contain Herbology
-						    		showQuest = false
-					    			--FIZ_Print("Not showing quest ["..FIZ_FactionGain[faction][standingId].quests.data[i].name.."] because you do not know Herbalism")
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Skin) and not FIZ_Skin) then
-						    		-- if list of known professions does not contain Herbology
-						    		showQuest = false
-					    			--FIZ_Print("Not showing quest ["..FIZ_FactionGain[faction][standingId].quests.data[i].name.."] because you do not know Skinning")
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Mine) and not FIZ_Mine) then
-						    		-- if list of known professions does not contain Herbology
-						    		showQuest = false
-					    			--FIZ_Print("Not showing quest ["..FIZ_FactionGain[faction][standingId].quests.data[i].name.."] because you do not know mining")
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Gather) and not (FIZ_Herb or FIZ_Skin or FIZ_Mine)) then
-						    		-- no gathering profession
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Jewe) and not FIZ_Jewel) then
-						    		-- if list of known professions does not contain jewelcrafting
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Cook) and not FIZ_Cook) then
-						    		-- if list of known professions does not contain jewelcrafting
-						    		showQuest = false
-							elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Arch) and not FIZ_Arch) then
-						    		-- if list of known professions does not contain jewelcrafting
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Fish) and not FIZ_Fish) then
-						    		-- if list of known professions does not contain jewelcrafting
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Aid) and not FIZ_Aid) then
-						    		-- if list of known professions does not contain jewelcrafting
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Blac) and not FIZ_Black) then
-						    		-- if list of known professions does not contain BLACKsmith
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Tail) and not FIZ_Tailor) then
-						    		-- if list of known professions does not contain tailor
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Leat) and not FIZ_Leath) then
-						    		-- if list of known professions does not contain leather
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Ench) and not FIZ_Enchan) then
-						    		-- if list of known professions does not contain enchanter
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Engi) and not FIZ_Engin) then
-						    		-- if list of known professions does not contain BLACKsmith
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Incr) and not FIZ_Incrip) then
-						    		-- if list of known professions does not contain leather
-						    		showQuest = false
-						    	elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Alch) and not FIZ_Alche) then
-						    		-- if list of known professions does not contain enchanter
-						    		showQuest = false
-						    	else
-						    		-- unexpected limit -> ignore this and still show quest ggg
-						    	end
-					    	end
-
-						if (showQuest) then
-							if (not fg_sid_x_d.limit or (normCurrent < fg_sid_x_d.limit)) then
-								local toDo = ceil(repToNext / fg_sid_x_d.rep)
-								if (fg_sid_x_d.limit) then
-									toDo = ceil((fg_sid_x_d.limit - normCurrent) / fg_sid_x_d.rep)
-								end
-								FIZ_UpdateList[index] = {}
-								local FUL_I = FIZ_UpdateList[index]
-								FUL_I.type = FIZ_TXT.questShort
-								FUL_I.times = toDo.."x"
-								FUL_I.rep = string.format("%d", fg_sid_x_d.rep)
-								FUL_I.index = index
-								FUL_I.belongsTo = nil
-								FUL_I.isShown = true
-								FUL_I.name = fg_sid_x_d.name
-								FUL_I.originalName = FUL_I.name
-								FUL_I.faction = faction
-								FUL_I.canSuppress = true
-								FUL_I.suppress = nil
-								if (FIZ_Suppressed and FIZ_Suppressed[oFaction] and FIZ_Suppressed[oFaction][FUL_I.originalName]) then
-									FUL_I.suppress = true
-								end
-								FUL_I.tooltipHead = FIZ_TXT.questHead
-								FUL_I.tooltipTip = FIZ_TXT.questTip
-
-								FUL_I.tooltipDetails = {}
-								local FUL_I_TD = FUL_I.tooltipDetails
-								local x = 0
-								FUL_I_TD[x] = {}
-								FUL_I_TD[x].l = FIZ_TXT.quest2
-								FUL_I_TD[x].r = FUL_I.name
-								x = x+1
-								FUL_I_TD[x] = {}
-								FUL_I_TD[x].l = FIZ_TXT.reputation
-								FUL_I_TD[x].r = FUL_I.rep
-								x = x+1
-								FUL_I_TD[x] = {}
-								FUL_I_TD[x].l = FIZ_TXT.timesToDo
-								FUL_I_TD[x].r = FUL_I.times
-								x = x+1
-
-								if (not FUL_I.suppress) then
-									sum = sum + fg_sid_x_d.rep
-									count = count + 1
-								end
-
-								if (fg_sid_x_d.items) then
-									FUL_I.hasList = true
-									FUL_I.listShown = false
-
-									FUL_I_TD[x] = {}
-									FUL_I_TD[x].l = " "
-									FUL_I_TD[x].r = " "
-									x = x+1
-									FUL_I_TD[x] = {}
-									FUL_I_TD[x].l = FIZ_TXT.itemsRequired
-									FUL_I_TD[x].r = " "
-									x = x+1
-
-									-- quest In log?
-									FUL_I.lowlight = nil
-
-									-- check if this quest is known
-									local entries, quests = GetNumQuestLogEntries()
-									for z=1,entries do
-										local title,level,tag,group,header,collapsed,complete,daily = GetQuestLogTitle(z)
-										if (title and not header) then
-											if string.find(string.lower(fg_sid_x_d.name), string.lower(title)) then
-												-- this quest matches
-												FUL_I.lowlight = true
-												FUL_I.name = FUL_I.name..FIZ_QUEST_ACTIVE_COLOUR.." ("..FIZ_TXT.active..")|r"
-											end
-										end
-									end
-
-
-									-- add items
-									local itemIndex = index+1
-
-									local currentQuestTimesBag = -1
-									local currentQuestTimesBagBank = -1
-									for item in pairs(fg_sid_x_d.items) do
-										FIZ_UpdateList[itemIndex] = {}
-										local FUL_II = FIZ_UpdateList[itemIndex]
-										FUL_II.type = ""
-										FUL_II.times = (fg_sid_x_d.items[item] * toDo).."x"
-										FUL_II.rep = nil
-										FUL_II.index = itemIndex
-										FUL_II.belongsTo = index
-										FUL_II.hasList = nil
-										FUL_II.listShown = nil
-										FUL_II.isShown = FUL_I.listShown
-										FUL_II.name = item.." ("..fg_sid_x_d.items[item].."x)"
-
-										FUL_I_TD[x] = {}
-										FUL_I_TD[x].l = fg_sid_x_d.items[item].."x"
-										FUL_I_TD[x].r = item
-										x = x+1
-
-										if (FIZ_ItemsCarried and FIZ_ItemsCarried[item]) then
-											if ((FIZ_ItemsCarried[item] >= fg_sid_x_d.items[item]) and (fg_sid_x_d.items[item] > 0)) then
-												FUL_II.name = FUL_II.name..FIZ_BAG_COLOUR.." ["..FIZ_ItemsCarried[item].."x]|r"
-												FUL_II.currentTimesBag = floor(FIZ_ItemsCarried[item] / fg_sid_x_d.items[item])
-												if (currentQuestTimesBag == -1) then
-													-- first items for this quest --> take value
-													currentQuestTimesBag = FUL_II.currentTimesBag
-												else
-													-- some items already Set
-													if (FUL_II.currentTimesBag < currentQuestTimesBag) then
-														-- fewer of this item than of others, reduce quest count
-														currentQuestTimesBag = FUL_II.currentTimesBag
-													end
-												end
-											else
-												-- not enough of this item for quest -> set to 0
-												currentQuestTimesBag = 0
-												FUL_II.name = FUL_II.name.." ["..FIZ_ItemsCarried[item].."x]"
-											end
-											if (FIZ_Data.Bank and
-												FIZ_Data.Bank[FIZ_Realm.." - "..FIZ_Player] and
-												FIZ_Data.Bank[FIZ_Realm.." - "..FIZ_Player][item]) then
-												local total = FIZ_Data.Bank[FIZ_Realm.." - "..FIZ_Player][item] + FIZ_ItemsCarried[item]
-												if ((total >= fg_sid_x_d.items[item]) and (fg_sid_x_d.items[item] > 0)) then
-													FUL_II.name = FUL_II.name..FIZ_BAG_BANK_COLOUR.." ["..total.."x]|r"
-													FUL_II.currentTimesBagBank = floor(total / fg_sid_x_d.items[item])
-													if (currentQuestTimesBagBank == -1) then
-														-- first items for this quest --> take value
-														currentQuestTimesBagBank = FUL_II.currentTimesBagBank
-													else
-														-- some items already Set
-														if (FUL_II.currentTimesBagBank < currentQuestTimesBagBank) then
-															-- fewer of this item than of others, reduce quest count
-															currentQuestTimesBagBank = FUL_II.currentTimesBagBank
-														end
-													end
-												else
-													-- not enough of this item for quest -> set to 0
-													currentQuestTimesBagBank = 0
-													FUL_II.name = FUL_II.name.." ["..total.."x]"
-												end
-											else
-												-- none of this carried In bank
-											end
-										else
-											-- not enough of this item for quest -> set to 0
-											currentQuestTimesBag = 0
-										end
-										FIZ_UpdateList[itemIndex] = FUL_II
-										itemIndex = itemIndex + 1
-									end
-									if (currentQuestTimesBag > 0) then
-										FUL_I.name = FUL_I.name..FIZ_BAG_COLOUR.." ["..currentQuestTimesBag.."x]|r"
-										FUL_I.currentTimesBag = currentQuestTimesBag
-										FUL_I.currentRepBag = currentQuestTimesBag * FUL_I.rep
-										FUL_I.highlight = true
-										FUL_I.name = FUL_I.originalName
-										FUL_I.lowlight = nil
-										FIZ_CurrentRepInBag = FIZ_CurrentRepInBag + FUL_I.currentRepBag
-
-										FUL_I_TD[x] = {}
-										FUL_I_TD[x].l = " "
-										FUL_I_TD[x].r = " "
-										x = x+1
-										FUL_I_TD[x] = {}
-										FUL_I_TD[x].l = FIZ_TXT.inBag
-										FUL_I_TD[x].r = " "
-										x = x+1
-										FUL_I_TD[x] = {}
-										FUL_I_TD[x].l = FIZ_TXT.turnIns
-										FUL_I_TD[x].r = string.format("%d", FUL_I.currentTimesBag)
-										x = x+1
-										FUL_I_TD[x] = {}
-										FUL_I_TD[x].l = FIZ_TXT.reputation
-										FUL_I_TD[x].r = string.format("%d", FUL_I.currentRepBag)
-										x = x+1
-									else
-										FUL_I.currentTimesBag = nil
-										FUL_I.currentRepBag = nil
-									end
-									if (currentQuestTimesBagBank > 0) then
-										FUL_I.name = FUL_I.name..FIZ_BAG_BANK_COLOUR.." ["..currentQuestTimesBagBank.."x]|r"
-										FUL_I.currentTimesBagBank = currentQuestTimesBagBank
-										FUL_I.currentRepBagBank = currentQuestTimesBagBank * FUL_I.rep
-										FUL_I.highlight = true
-										FUL_I.name = FUL_I.originalName
-										FUL_I.lowlight = nil
-										FIZ_CurrentRepInBagBank = FIZ_CurrentRepInBagBank + FUL_I.currentRepBagBank
-
-										FUL_I_TD[x] = {}
-										FUL_I_TD[x].l = " "
-										FUL_I_TD[x].r = " "
-										x = x+1
-										FUL_I_TD[x] = {}
-										FUL_I_TD[x].l = FIZ_TXT.inBagBank
-										FUL_I_TD[x].r = " "
-										x = x+1
-										FUL_I_TD[x] = {}
-										FUL_I_TD[x].l = FIZ_TXT.turnIns
-										FUL_I_TD[x].r = string.format("%d", FUL_I.currentTimesBagBank)
-										x = x+1
-										FUL_I_TD[x] = {}
-										FUL_I_TD[x].l = FIZ_TXT.reputation
-										FUL_I_TD[x].r = string.format("%d", FUL_I.currentRepBagBank)
-										x = x+1
-									else
-										FUL_I.currentTimesBagBank = nil
-										FUL_I.currentRepBagBank = nil
-									end
-									if ((currentQuestTimesBag == 0) and (currentQuestTimesBagBank)) then
-										FUL_I.highlight = nil
-									end
-
-									FUL_I_TD[x] = {}
-									FUL_I_TD[x].l = " "
-									FUL_I_TD[x].r = " "
-									x = x+1
-									FUL_I_TD[x] = {}
-									FUL_I_TD[x].l = FIZ_TXT.maxStanding
-									FUL_I_TD[x].r = _G["FACTION_STANDING_LABEL"..fg_sid_x_d.maxStanding]
-									x = x+1
-
-									FUL_I_TD.count = x-1
-									index = itemIndex
-								else
-									-- no items to add
-									FUL_I.hasList = false
-									FUL_I.listShown = nil
-									FUL_I.highlight = nil	-- will be Changed below if needed
-									FUL_I.lowlight = nil
-
-									-- check if this quest is known and/or completed
-									local entries, quests = GetNumQuestLogEntries()
-									for z=1,entries do
-										local title,level,tag,group,header,collapsed,complete,daily = GetQuestLogTitle(z)
-										if (title and not header) then
-											if string.find(string.lower(fg_sid_x_d.name), string.lower(title)) then
-												-- this quest matches
-												if (complete) then
-													FUL_I.highlight = true
-													FUL_I.name = FUL_I.name..FIZ_QUEST_COLOUR.." ("..FIZ_TXT.complete..")|r"
-													FUL_I.currentTimesQuest = 1
-													FUL_I.currentRepQuest = FUL_I.rep
-
-													FIZ_CurrentRepInQuest = FIZ_CurrentRepInQuest + fg_sid_x_d.rep
-
-													FUL_I_TD[x] = {}
-													FUL_I_TD[x].l = " "
-													FUL_I_TD[x].r = " "
-													x = x+1
-													FUL_I_TD[x] = {}
-													FUL_I_TD[x].l = FIZ_TXT.questCompleted
-													FUL_I_TD[x].r = " "
-													x = x+1
-													FUL_I_TD[x] = {}
-													FUL_I_TD[x].l = FIZ_TXT.reputation
-													FUL_I_TD[x].r = string.format("%d", FUL_I.currentRepQuest)
-													x = x+1
-												else
-													FUL_I.lowlight = true
-													FUL_I.name = FUL_I.name..FIZ_QUEST_ACTIVE_COLOUR.." ("..FIZ_TXT.active..")|r"
-												end
-											end
-										end
-									end
-
-									FUL_I_TD[x] = {}
-									FUL_I_TD[x].l = " "
-									FUL_I_TD[x].r = " "
-									x = x+1
-									FUL_I_TD[x] = {}
-									FUL_I_TD[x].l = FIZ_TXT.maxStanding
-									FUL_I_TD[x].r = _G["FACTION_STANDING_LABEL"..fg_sid_x_d.maxStanding]
-									x = x+1
-
-									FUL_I_TD.count = x-1
-									FIZ_UpdateList[index] = FUL_I
-									index = index + 1
-								end
-							end
+						if ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Herb) and not FIZ_Herb) then
+							-- if list of known professions does not contain Herbology
+							showQuest = false
+							--FIZ_Print("Not showing quest ["..FIZ_FactionGain[faction][standingId].quests.data[i].name.."] because you do not know Herbalism")
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Skin) and not FIZ_Skin) then
+							-- if list of known professions does not contain Herbology
+							showQuest = false
+							--FIZ_Print("Not showing quest ["..FIZ_FactionGain[faction][standingId].quests.data[i].name.."] because you do not know Skinning")
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Mine) and not FIZ_Mine) then
+							-- if list of known professions does not contain Herbology
+							showQuest = false
+							--FIZ_Print("Not showing quest ["..FIZ_FactionGain[faction][standingId].quests.data[i].name.."] because you do not know mining")
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Gather) and not (FIZ_Herb or FIZ_Skin or FIZ_Mine)) then
+							-- no gathering profession
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Jewe) and not FIZ_Jewel) then
+							-- if list of known professions does not contain jewelcrafting
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Cook) and not FIZ_Cook) then
+							-- if list of known professions does not contain jewelcrafting
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Arch) and not FIZ_Arch) then
+							-- if list of known professions does not contain jewelcrafting
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Fish) and not FIZ_Fish) then
+							-- if list of known professions does not contain jewelcrafting
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Aid) and not FIZ_Aid) then
+							-- if list of known professions does not contain jewelcrafting
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Blac) and not FIZ_Black) then
+							-- if list of known professions does not contain BLACKsmith
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Tail) and not FIZ_Tailor) then
+							-- if list of known professions does not contain tailor
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Leat) and not FIZ_Leath) then
+							-- if list of known professions does not contain leather
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Ench) and not FIZ_Enchan) then
+							-- if list of known professions does not contain enchanter
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Engi) and not FIZ_Engin) then
+							-- if list of known professions does not contain BLACKsmith
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Incr) and not FIZ_Incrip) then
+							-- if list of known professions does not contain leather
+							showQuest = false
+						elseif ((fg_sid_x_d_p == FIZ_LIMIT_TYPE_Alch) and not FIZ_Alche) then
+							-- if list of known professions does not contain enchanter
+							showQuest = false
+						else
+							-- unexpected limit -> ignore this and still show quest ggg
 						end
 					end
-					if ((sum > 0) and (count > 1)) then
-						-- add virtual quest to show summary of all quests:
-						local toDo = ceil(repToNext / sum)
-						FIZ_UpdateList[index] = {}
-						local FUL_I = FIZ_UpdateList[index]
-						FUL_I.type = FIZ_TXT.questShort
-						FUL_I.times = toDo.."x"
-						FUL_I.rep = string.format("%d", sum)
-						FUL_I.index = index
-						FUL_I.belongsTo = nil
-						FUL_I.isShown = true
-						FUL_I.name = string.format(FIZ_TXT.allOfTheAbove, count)
-						FUL_I.tooltipHead = string.format(FIZ_TXT.questSummaryHead, count)
-						FUL_I.tooltipTip = FIZ_TXT.questSummaryTip
 
-						FUL_I_TD = {}
-						local x = 0
-						FUL_I_TD[x] = {}
-						FUL_I_TD[x].l = FIZ_TXT.reputation
-						FUL_I_TD[x].r = FUL_I.rep
-						x = x+1
-						FUL_I_TD[x] = {}
-						FUL_I_TD[x].l = FIZ_TXT.timesToDo
-						FUL_I_TD[x].r = FUL_I.times
-						FUL_I_TD.count = x
-						FUL_I.tooltipDetails = FUL_I_TD
-						FIZ_UpdateList[index] = FUL_I
-						index = index + 1
-
-
-					end
-				end
-
-				-- items
-				if (fg_sid.items and FIZ_Data.ShowItems) then
-					local fg_sid_x=fg_sid.items
-					for i = 0, fg_sid_x.count do
-					local fg_sid_x_d=fg_sid_x.data[i]
+					if (showQuest) then
 						if (not fg_sid_x_d.limit or (normCurrent < fg_sid_x_d.limit)) then
 							local toDo = ceil(repToNext / fg_sid_x_d.rep)
 							if (fg_sid_x_d.limit) then
 								toDo = ceil((fg_sid_x_d.limit - normCurrent) / fg_sid_x_d.rep)
 							end
+							FIZ_UpdateList[index] = {}
+							local FUL_I = FIZ_UpdateList[index]
+							FUL_I.type = FIZ_TXT.questShort
+							FUL_I.times = toDo.."x"
+							FUL_I.rep = string.format("%d", fg_sid_x_d.rep)
+							FUL_I.index = index
+							FUL_I.belongsTo = nil
+							FUL_I.isShown = true
+							FUL_I.name = fg_sid_x_d.name
+							FUL_I.originalName = FUL_I.name
+							FUL_I.faction = faction
+							FUL_I.canSuppress = true
+							FUL_I.suppress = nil
+							if (FIZ_Suppressed and FIZ_Suppressed[oFaction] and FIZ_Suppressed[oFaction][FUL_I.originalName]) then
+								FUL_I.suppress = true
+							end
+							FUL_I.tooltipHead = FIZ_TXT.questHead
+							FUL_I.tooltipTip = FIZ_TXT.questTip
+
+							FUL_I.tooltipDetails = {}
+							local FUL_I_TD = FUL_I.tooltipDetails
+							local x = 0
+							FUL_I_TD[x] = {}
+							FUL_I_TD[x].l = FIZ_TXT.quest2
+							FUL_I_TD[x].r = FUL_I.name
+							x = x+1
+							FUL_I_TD[x] = {}
+							FUL_I_TD[x].l = FIZ_TXT.reputation
+							FUL_I_TD[x].r = FUL_I.rep
+							x = x+1
+							FUL_I_TD[x] = {}
+							FUL_I_TD[x].l = FIZ_TXT.timesToDo
+							FUL_I_TD[x].r = FUL_I.times
+							x = x+1
+
+							if (not FUL_I.suppress) then
+								sum = sum + fg_sid_x_d.rep
+								count = count + 1
+							end
+
 							if (fg_sid_x_d.items) then
-								FIZ_UpdateList[index] = {}
-								local FUL_I = FIZ_UpdateList[index]
-								FUL_I.type = FIZ_TXT.itemsShort
-								FUL_I.times = toDo.."x"
-								FUL_I.rep = string.format("%d", fg_sid_x_d.rep)
-								FUL_I.index = index
-								FUL_I.belongsTo = nil
-								FUL_I.isShown = true
-								FUL_I.name = FIZ_TXT.itemsName
 								FUL_I.hasList = true
 								FUL_I.listShown = false
-								FUL_I.tooltipHead = FIZ_TXT.itemsHead
-								FUL_I.tooltipTip = FIZ_TXT.itemsTip
 
-								FUL_I.tooltipDetails = {}
-								local FUL_I_TD = FUL_I.tooltipDetails
-								local x = 0
-								FUL_I_TD[x] = {}
-								FUL_I_TD[x].l = FUL_I.name
-								FUL_I_TD[x].r = " "
-								x = x+1
 								FUL_I_TD[x] = {}
 								FUL_I_TD[x].l = " "
 								FUL_I_TD[x].r = " "
@@ -672,6 +376,22 @@ function FIZ_BuildUpdateList() --xxx
 								FUL_I_TD[x].l = FIZ_TXT.itemsRequired
 								FUL_I_TD[x].r = " "
 								x = x+1
+
+								-- quest In log?
+								FUL_I.lowlight = nil
+
+								-- check if this quest is known
+								local entries, quests = GetNumQuestLogEntries()
+								for z=1,entries do
+									local title,level,tag,group,header,collapsed,complete,daily = GetQuestLogTitle(z)
+									if (title and not header) then
+										if string.find(string.lower(fg_sid_x_d.name), string.lower(title)) then
+											-- this quest matches
+											FUL_I.lowlight = true
+											FUL_I.name = FUL_I.name..FIZ_QUEST_ACTIVE_COLOUR.." ("..FIZ_TXT.active..")|r"
+										end
+									end
+								end
 
 								-- add items
 								local itemIndex = index+1
@@ -698,8 +418,8 @@ function FIZ_BuildUpdateList() --xxx
 
 									if (FIZ_ItemsCarried and FIZ_ItemsCarried[item]) then
 										if ((FIZ_ItemsCarried[item] >= fg_sid_x_d.items[item]) and (fg_sid_x_d.items[item] > 0)) then
-											FUL_II.currentTimesBag = floor(FIZ_ItemsCarried[item] / fg_sid_x_d.items[item])
 											FUL_II.name = FUL_II.name..FIZ_BAG_COLOUR.." ["..FIZ_ItemsCarried[item].."x]|r"
+											FUL_II.currentTimesBag = floor(FIZ_ItemsCarried[item] / fg_sid_x_d.items[item])
 											if (currentQuestTimesBag == -1) then
 												-- first items for this quest --> take value
 												currentQuestTimesBag = FUL_II.currentTimesBag
@@ -748,11 +468,12 @@ function FIZ_BuildUpdateList() --xxx
 									itemIndex = itemIndex + 1
 								end
 								if (currentQuestTimesBag > 0) then
-									FUL_I.highlight = true
-									FUL_I.lowlight = nil
 									FUL_I.name = FUL_I.name..FIZ_BAG_COLOUR.." ["..currentQuestTimesBag.."x]|r"
 									FUL_I.currentTimesBag = currentQuestTimesBag
 									FUL_I.currentRepBag = currentQuestTimesBag * FUL_I.rep
+									FUL_I.highlight = true
+									FUL_I.name = FUL_I.originalName
+									FUL_I.lowlight = nil
 									FIZ_CurrentRepInBag = FIZ_CurrentRepInBag + FUL_I.currentRepBag
 
 									FUL_I_TD[x] = {}
@@ -765,7 +486,6 @@ function FIZ_BuildUpdateList() --xxx
 									x = x+1
 									FUL_I_TD[x] = {}
 									FUL_I_TD[x].l = FIZ_TXT.turnIns
-
 									FUL_I_TD[x].r = string.format("%d", FUL_I.currentTimesBag)
 									x = x+1
 									FUL_I_TD[x] = {}
@@ -775,19 +495,296 @@ function FIZ_BuildUpdateList() --xxx
 								else
 									FUL_I.currentTimesBag = nil
 									FUL_I.currentRepBag = nil
-									FUL_I.highlight = nil
 								end
 								if (currentQuestTimesBagBank > 0) then
-									FUL_I.highlight = true
-									FUL_I.lowlight = nil
-									FUL_I.name = FUL_I.name..FIZ_BAG_BANK_COLOUR.." ["..currentQuestTimesBagBank.."]|r"
+									FUL_I.name = FUL_I.name..FIZ_BAG_BANK_COLOUR.." ["..currentQuestTimesBagBank.."x]|r"
 									FUL_I.currentTimesBagBank = currentQuestTimesBagBank
-
 									FUL_I.currentRepBagBank = currentQuestTimesBagBank * FUL_I.rep
+									FUL_I.highlight = true
+									FUL_I.name = FUL_I.originalName
+									FUL_I.lowlight = nil
 									FIZ_CurrentRepInBagBank = FIZ_CurrentRepInBagBank + FUL_I.currentRepBagBank
 
 									FUL_I_TD[x] = {}
-	if (not FIZ_UpdateList[index].hasList) then return end	-- not a list Header entry
+									FUL_I_TD[x].l = " "
+									FUL_I_TD[x].r = " "
+									x = x+1
+									FUL_I_TD[x] = {}
+									FUL_I_TD[x].l = FIZ_TXT.inBagBank
+									FUL_I_TD[x].r = " "
+									x = x+1
+									FUL_I_TD[x] = {}
+									FUL_I_TD[x].l = FIZ_TXT.turnIns
+									FUL_I_TD[x].r = string.format("%d", FUL_I.currentTimesBagBank)
+									x = x+1
+									FUL_I_TD[x] = {}
+									FUL_I_TD[x].l = FIZ_TXT.reputation
+									FUL_I_TD[x].r = string.format("%d", FUL_I.currentRepBagBank)
+									x = x+1
+								else
+									FUL_I.currentTimesBagBank = nil
+									FUL_I.currentRepBagBank = nil
+								end
+								if ((currentQuestTimesBag == 0) and (currentQuestTimesBagBank)) then
+									FUL_I.highlight = nil
+								end
+
+								FUL_I_TD[x] = {}
+								FUL_I_TD[x].l = " "
+								FUL_I_TD[x].r = " "
+								x = x+1
+								FUL_I_TD[x] = {}
+								FUL_I_TD[x].l = FIZ_TXT.maxStanding
+								FUL_I_TD[x].r = _G["FACTION_STANDING_LABEL"..fg_sid_x_d.maxStanding]
+								x = x+1
+
+								FUL_I_TD.count = x-1
+								index = itemIndex
+							else
+								-- no items to add
+								FUL_I.hasList = false
+								FUL_I.listShown = nil
+								FUL_I.highlight = nil	-- will be Changed below if needed
+								FUL_I.lowlight = nil
+
+								-- check if this quest is known and/or completed
+								local entries, quests = GetNumQuestLogEntries()
+								for z=1,entries do
+									local title,level,tag,group,header,collapsed,complete,daily = GetQuestLogTitle(z)
+									if (title and not header) then
+										if string.find(string.lower(fg_sid_x_d.name), string.lower(title)) then
+											-- this quest matches
+											if (complete) then
+												FUL_I.highlight = true
+												FUL_I.name = FUL_I.name..FIZ_QUEST_COLOUR.." ("..FIZ_TXT.complete..")|r"
+												FUL_I.currentTimesQuest = 1
+												FUL_I.currentRepQuest = FUL_I.rep
+
+												FIZ_CurrentRepInQuest = FIZ_CurrentRepInQuest + fg_sid_x_d.rep
+
+												FUL_I_TD[x] = {}
+												FUL_I_TD[x].l = " "
+												FUL_I_TD[x].r = " "
+												x = x+1
+												FUL_I_TD[x] = {}
+												FUL_I_TD[x].l = FIZ_TXT.questCompleted
+												FUL_I_TD[x].r = " "
+												x = x+1
+												FUL_I_TD[x] = {}
+												FUL_I_TD[x].l = FIZ_TXT.reputation
+												FUL_I_TD[x].r = string.format("%d", FUL_I.currentRepQuest)
+												x = x+1
+											else
+												FUL_I.lowlight = true
+												FUL_I.name = FUL_I.name..FIZ_QUEST_ACTIVE_COLOUR.." ("..FIZ_TXT.active..")|r"
+											end
+										end
+									end
+								end
+
+								FUL_I_TD[x] = {}
+								FUL_I_TD[x].l = " "
+								FUL_I_TD[x].r = " "
+								x = x+1
+								FUL_I_TD[x] = {}
+								FUL_I_TD[x].l = FIZ_TXT.maxStanding
+								FUL_I_TD[x].r = _G["FACTION_STANDING_LABEL"..fg_sid_x_d.maxStanding]
+								x = x+1
+
+								FUL_I_TD.count = x-1
+								FIZ_UpdateList[index] = FUL_I
+								index = index + 1
+							end
+						end
+					end
+				end
+				if ((sum > 0) and (count > 1)) then
+					-- add virtual quest to show summary of all quests:
+					local toDo = ceil(repToNext / sum)
+					FIZ_UpdateList[index] = {}
+					local FUL_I = FIZ_UpdateList[index]
+					FUL_I.type = FIZ_TXT.questShort
+					FUL_I.times = toDo.."x"
+					FUL_I.rep = string.format("%d", sum)
+					FUL_I.index = index
+					FUL_I.belongsTo = nil
+					FUL_I.isShown = true
+					FUL_I.name = string.format(FIZ_TXT.allOfTheAbove, count)
+					FUL_I.tooltipHead = string.format(FIZ_TXT.questSummaryHead, count)
+					FUL_I.tooltipTip = FIZ_TXT.questSummaryTip
+
+					FUL_I_TD = {}
+					local x = 0
+					FUL_I_TD[x] = {}
+					FUL_I_TD[x].l = FIZ_TXT.reputation
+					FUL_I_TD[x].r = FUL_I.rep
+					x = x+1
+					FUL_I_TD[x] = {}
+					FUL_I_TD[x].l = FIZ_TXT.timesToDo
+					FUL_I_TD[x].r = FUL_I.times
+					FUL_I_TD.count = x
+					FUL_I.tooltipDetails = FUL_I_TD
+					FIZ_UpdateList[index] = FUL_I
+					index = index + 1
+				end
+			end
+
+			-- items
+			if (fg_sid.items and FIZ_Data.ShowItems) then
+				local fg_sid_x=fg_sid.items
+				for i = 0, fg_sid_x.count do
+				local fg_sid_x_d=fg_sid_x.data[i]
+					if (not fg_sid_x_d.limit or (normCurrent < fg_sid_x_d.limit)) then
+						local toDo = ceil(repToNext / fg_sid_x_d.rep)
+						if (fg_sid_x_d.limit) then
+							toDo = ceil((fg_sid_x_d.limit - normCurrent) / fg_sid_x_d.rep)
+						end
+						if (fg_sid_x_d.items) then
+							FIZ_UpdateList[index] = {}
+							local FUL_I = FIZ_UpdateList[index]
+							FUL_I.type = FIZ_TXT.itemsShort
+							FUL_I.times = toDo.."x"
+							FUL_I.rep = string.format("%d", fg_sid_x_d.rep)
+							FUL_I.index = index
+							FUL_I.belongsTo = nil
+							FUL_I.isShown = true
+							FUL_I.name = FIZ_TXT.itemsName
+							FUL_I.hasList = true
+							FUL_I.listShown = false
+							FUL_I.tooltipHead = FIZ_TXT.itemsHead
+							FUL_I.tooltipTip = FIZ_TXT.itemsTip
+
+							FUL_I.tooltipDetails = {}
+							local FUL_I_TD = FUL_I.tooltipDetails
+							local x = 0
+							FUL_I_TD[x] = {}
+							FUL_I_TD[x].l = FUL_I.name
+							FUL_I_TD[x].r = " "
+							x = x+1
+							FUL_I_TD[x] = {}
+							FUL_I_TD[x].l = " "
+							FUL_I_TD[x].r = " "
+							x = x+1
+							FUL_I_TD[x] = {}
+							FUL_I_TD[x].l = FIZ_TXT.itemsRequired
+							FUL_I_TD[x].r = " "
+							x = x+1
+
+							-- add items
+							local itemIndex = index+1
+
+							local currentQuestTimesBag = -1
+							local currentQuestTimesBagBank = -1
+							for item in pairs(fg_sid_x_d.items) do
+								FIZ_UpdateList[itemIndex] = {}
+								local FUL_II = FIZ_UpdateList[itemIndex]
+								FUL_II.type = ""
+								FUL_II.times = (fg_sid_x_d.items[item] * toDo).."x"
+								FUL_II.rep = nil
+								FUL_II.index = itemIndex
+								FUL_II.belongsTo = index
+								FUL_II.hasList = nil
+								FUL_II.listShown = nil
+								FUL_II.isShown = FUL_I.listShown
+								FUL_II.name = item.." ("..fg_sid_x_d.items[item].."x)"
+
+								FUL_I_TD[x] = {}
+								FUL_I_TD[x].l = fg_sid_x_d.items[item].."x"
+								FUL_I_TD[x].r = item
+								x = x+1
+
+								if (FIZ_ItemsCarried and FIZ_ItemsCarried[item]) then
+									if ((FIZ_ItemsCarried[item] >= fg_sid_x_d.items[item]) and (fg_sid_x_d.items[item] > 0)) then
+										FUL_II.currentTimesBag = floor(FIZ_ItemsCarried[item] / fg_sid_x_d.items[item])
+										FUL_II.name = FUL_II.name..FIZ_BAG_COLOUR.." ["..FIZ_ItemsCarried[item].."x]|r"
+										if (currentQuestTimesBag == -1) then
+											-- first items for this quest --> take value
+											currentQuestTimesBag = FUL_II.currentTimesBag
+										else
+											-- some items already Set
+											if (FUL_II.currentTimesBag < currentQuestTimesBag) then
+												-- fewer of this item than of others, reduce quest count
+												currentQuestTimesBag = FUL_II.currentTimesBag
+											end
+										end
+									else
+										-- not enough of this item for quest -> set to 0
+										currentQuestTimesBag = 0
+										FUL_II.name = FUL_II.name.." ["..FIZ_ItemsCarried[item].."x]"
+									end
+									if (FIZ_Data.Bank and
+										FIZ_Data.Bank[FIZ_Realm.." - "..FIZ_Player] and
+										FIZ_Data.Bank[FIZ_Realm.." - "..FIZ_Player][item]) then
+										local total = FIZ_Data.Bank[FIZ_Realm.." - "..FIZ_Player][item] + FIZ_ItemsCarried[item]
+										if ((total >= fg_sid_x_d.items[item]) and (fg_sid_x_d.items[item] > 0)) then
+											FUL_II.name = FUL_II.name..FIZ_BAG_BANK_COLOUR.." ["..total.."x]|r"
+											FUL_II.currentTimesBagBank = floor(total / fg_sid_x_d.items[item])
+											if (currentQuestTimesBagBank == -1) then
+												-- first items for this quest --> take value
+												currentQuestTimesBagBank = FUL_II.currentTimesBagBank
+											else
+												-- some items already Set
+												if (FUL_II.currentTimesBagBank < currentQuestTimesBagBank) then
+													-- fewer of this item than of others, reduce quest count
+													currentQuestTimesBagBank = FUL_II.currentTimesBagBank
+												end
+											end
+										else
+											-- not enough of this item for quest -> set to 0
+											currentQuestTimesBagBank = 0
+											FUL_II.name = FUL_II.name.." ["..total.."x]"
+										end
+									else
+										-- none of this carried In bank
+									end
+								else
+									-- not enough of this item for quest -> set to 0
+									currentQuestTimesBag = 0
+								end
+								FIZ_UpdateList[itemIndex] = FUL_II
+								itemIndex = itemIndex + 1
+							end
+							if (currentQuestTimesBag > 0) then
+								FUL_I.highlight = true
+								FUL_I.lowlight = nil
+								FUL_I.name = FUL_I.name..FIZ_BAG_COLOUR.." ["..currentQuestTimesBag.."x]|r"
+								FUL_I.currentTimesBag = currentQuestTimesBag
+								FUL_I.currentRepBag = currentQuestTimesBag * FUL_I.rep
+								FIZ_CurrentRepInBag = FIZ_CurrentRepInBag + FUL_I.currentRepBag
+
+								FUL_I_TD[x] = {}
+								FUL_I_TD[x].l = " "
+								FUL_I_TD[x].r = " "
+								x = x+1
+								FUL_I_TD[x] = {}
+								FUL_I_TD[x].l = FIZ_TXT.inBag
+								FUL_I_TD[x].r = " "
+								x = x+1
+								FUL_I_TD[x] = {}
+								FUL_I_TD[x].l = FIZ_TXT.turnIns
+
+								FUL_I_TD[x].r = string.format("%d", FUL_I.currentTimesBag)
+								x = x+1
+								FUL_I_TD[x] = {}
+								FUL_I_TD[x].l = FIZ_TXT.reputation
+								FUL_I_TD[x].r = string.format("%d", FUL_I.currentRepBag)
+								x = x+1
+							else
+								FUL_I.currentTimesBag = nil
+								FUL_I.currentRepBag = nil
+								FUL_I.highlight = nil
+							end
+							if (currentQuestTimesBagBank > 0) then
+								FUL_I.highlight = true
+								FUL_I.lowlight = nil
+								FUL_I.name = FUL_I.name..FIZ_BAG_BANK_COLOUR.." ["..currentQuestTimesBagBank.."]|r"
+								FUL_I.currentTimesBagBank = currentQuestTimesBagBank
+
+								FUL_I.currentRepBagBank = currentQuestTimesBagBank * FUL_I.rep
+								FIZ_CurrentRepInBagBank = FIZ_CurrentRepInBagBank + FUL_I.currentRepBagBank
+
+								FUL_I_TD[x] = {}
+								if (not FIZ_UpdateList[index].hasList) then return end	-- not a list Header entry
 									FUL_I_TD[x].l = " "
 									FUL_I_TD[x].r = " "
 									x = x+1
@@ -834,7 +831,7 @@ function FIZ_BuildUpdateList() --xxx
 				if (fg_sid.general and FIZ_Data.ShowGeneral) then
 					local fg_sid_x=fg_sid.general
 					for i = 0, fg_sid_x.count do
-					local fg_sid_x_d=fg_sid_x.data[i]
+						local fg_sid_x_d=fg_sid_x.data[i]
 						if (not fg_sid_x_d.limit or (normCurrent < fg_sid_x_d.limit)) then
 							local toDo = string.format("%.2f", repToNext / fg_sid_x_d.rep)
 							if (fg_sid_x_d.limit) then
@@ -898,7 +895,6 @@ function FIZ_BuildUpdateList() --xxx
 
 							if (fg_sid_x_d.tipList) then
 								for tip in pairs(fg_sid_x_d.tipList) do
-
 									x = x+1
 									FUL_I_TD[x] = {}
 									FUL_I_TD[x].l = tip
@@ -921,8 +917,6 @@ function FIZ_BuildUpdateList() --xxx
 						end
 					end
 				end
-
-
 			end
 		end
 	end
@@ -933,7 +927,7 @@ function FIZ_BuildUpdateList() --xxx
 end
 
 function FIZ_GetUpdateListSize()
-	-- sub function of  FIZ_UpdateList_Update()
+	-- sub function of	FIZ_UpdateList_Update()
 	--fpt hed f_guls	FIZ_Printtest("","","f_guls 1")
 	local count = 0
 	local highest = 0
@@ -1048,10 +1042,10 @@ function FIZ_ShowHelpToolTip(self, element)
 	local tip = ""
 	local head = ""
 	if (FIZ_TXT.elements and
-	    FIZ_TXT.elements.name and
-	    FIZ_TXT.elements.tip and
-	    FIZ_TXT.elements.name[name] and
-	    FIZ_TXT.elements.tip[name]) then
+		FIZ_TXT.elements.name and
+		FIZ_TXT.elements.tip and
+		FIZ_TXT.elements.name[name] and
+		FIZ_TXT.elements.tip[name]) then
 		tip = FIZ_TXT.elements.tip[name]
 		head = FIZ_TXT.elements.name[name]
 
