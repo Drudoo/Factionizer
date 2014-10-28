@@ -3,16 +3,7 @@
 	xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 
 	<Script file="Factionizer.lua"/>
-	<Script file="Factionizer5.lua"/>
-	<Script file="Factionizer6.lua"/>
-	<Script file="Factionizer7.lua"/>
-	<Script file="Factionizer8.lua"/>
-	<Script file="Factionizer9.lua"/>
-	<Script file="Factionizer11.lua"/>
-	<Script file="Factionizer12.lua"/>
-	<Script file="Factionizer15.lua"/>
-	<Script file="Factionizer16.lua"/>
-
+	
 <!--> ============================================================================================================== <-->
 	<Frame name="Factionizer">
 		<Scripts>
