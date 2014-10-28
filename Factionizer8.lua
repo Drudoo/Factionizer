@@ -140,29 +140,21 @@ function FIZ_GetTabardFaction()
 	if DEBUG then self:Debug("GetChampionedFaction:", "none") end
 end
 
-function FIZ_InitFactor(FIZ_IsHuman,FIZ_GuildPerk,faction)
+function FIZ_InitFactor(FIZ_IsHuman,faction)
 --- Thanks Gwalkmaur for the heads up
 	local factor=1.0
 	-- race check
 		if FIZ_IsHuman then factor = factor + 0.1 end
-	-- guild check
-		if FIZ_GuildPerk == 1 then
-		-- 5% bonus (guild level 4)
-		factor = factor + 0.05
-		elseif FIZ_GuildPerk == 2 then
-		-- 10% bonus (guild level 12)
-		factor = factor + 0.1
-		end
 	-- bonus repgain check
 		local numFactions = GetNumFactions();
 		local factionOffset=0;
 		local factionIndex;
 		local factor_h=0
 	---	FIZ_Printtest(numFactions,factionOffset,factionIndex)
-	--- f_if	FIZ_Printtest(faction,FIZ_GuildPerk,name)
+	--- f_if	FIZ_Printtest(faction,name)
 		for i=1,numFactions do
 			local factionIndex = factionOffset + i;
-			if (factionIndex<=numFactions) then
+			if (factionIndex <= numFactions) then
 				local name, hasBonusRepGain;
 				local name, _, _, _, _, _, _, _, _, _, _, _, _, _, hasBonusRepGain, _ = GetFactionInfo(factionIndex);
 				if (faction==name) then
@@ -203,7 +195,9 @@ function FIZ_AddMapping(english, localised)
 		FIZ_FactionMapping = {}
 	end
 	FIZ_InitFaction(FIZ_GuildName,localised)
-	FIZ_FactionMapping[string.lower(FIZ_faction)] = string.lower(english)
+	if (FIZ_faction) then
+		FIZ_FactionMapping[string.lower(FIZ_faction)] = string.lower(english)
+	end
 end
 
 ------------------------------------
@@ -226,7 +220,7 @@ function FIZ_AddSpell(faction, from, to, name, rep, zone, limit)
 --[[--	FIZ_Initspellname(name)
 ---	FIZ_Initmapname(zone)
 	FIZ_InitFaction(FIZ_GuildName,faction)
-	FIZ_InitFactor(FIZ_IsHuman,FIZ_GuildPerk,FIZ_faction)
+	FIZ_InitFactor(FIZ_IsHuman,FIZ_faction)
 	rep = rep * FIZ_factor
 	faction = string.lower(FIZ_faction)
 	---	FIZ_Printtest(faction,FIZ_faction,"spell")--fpt
@@ -280,7 +274,7 @@ function FIZ_AddMob(faction, from, to, name, rep, zone, limit)
 	FIZ_Initmobname(name)
 	FIZ_Initmapname(zone)
 	FIZ_InitFaction(FIZ_GuildName,faction)
-	FIZ_InitFactor(FIZ_IsHuman,FIZ_GuildPerk,FIZ_faction)
+	FIZ_InitFactor(FIZ_IsHuman,FIZ_faction)
 	rep = rep * FIZ_factor
 	faction = string.lower(FIZ_faction)
 	--- f_amo	FIZ_Printtest(faction,FIZ_faction,"mob")
@@ -332,7 +326,7 @@ function FIZ_AddQuest(faction, from, to, name, rep, itemList, limitType)
 	if (from > to) then return end
 
 	FIZ_InitFaction(FIZ_GuildName,faction)
-	FIZ_InitFactor(FIZ_IsHuman,FIZ_GuildPerk,FIZ_faction)
+	FIZ_InitFactor(FIZ_IsHuman,FIZ_faction)
 	rep = rep * FIZ_factor
 	faction = string.lower(FIZ_faction)
 	--- f_aq	FIZ_Printtest(faction,FIZ_faction,"quest")
@@ -399,7 +393,7 @@ function FIZ_AddInstance(faction, from, to, name, rep, heroic)
 
 	FIZ_Initmapname(name)
 	FIZ_InitFaction(FIZ_GuildName,faction)
-	FIZ_InitFactor(FIZ_IsHuman,FIZ_GuildPerk,FIZ_faction)
+	FIZ_InitFactor(FIZ_IsHuman,FIZ_faction)
 	rep = rep * FIZ_factor
 	faction = string.lower(FIZ_faction)
 	--- f_ain	FIZ_Printtest(faction,FIZ_faction,"inst")
@@ -456,7 +450,7 @@ function FIZ_AddItems(faction, from, to, rep, itemList)
 	faction = string.lower(faction)
 
 	FIZ_InitFaction(FIZ_GuildName,faction)
-	FIZ_InitFactor(FIZ_IsHuman,FIZ_GuildPerk,FIZ_faction)
+	FIZ_InitFactor(FIZ_IsHuman,FIZ_faction)
 	rep = rep * FIZ_factor
 	faction = string.lower(FIZ_faction)
 	--- f_ait	FIZ_Printtest(faction,FIZ_faction,"item")
@@ -526,7 +520,7 @@ function FIZ_AddGeneral(faction, from, to, name, rep, head, tip, tipList, flag)
 	end
 
 	FIZ_InitFaction(FIZ_GuildName,faction)
-	FIZ_InitFactor(FIZ_IsHuman,FIZ_GuildPerk,FIZ_faction)
+	FIZ_InitFactor(FIZ_IsHuman,FIZ_faction)
 	rep = rep * FIZ_factor
 	faction = string.lower(FIZ_faction)
 	--- f_ag	FIZ_Printtest(faction,FIZ_faction,"gen") 

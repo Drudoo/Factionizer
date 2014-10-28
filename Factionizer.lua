@@ -12,9 +12,9 @@ FIZ_ToExalted[2] = 45000;	-- working on Hostile -> Unfriendly, base offset 21k+1
 FIZ_ToExalted[3] = 42000;	-- working on Unfriendly -> Neutral, base offset 21k+12k+6k+3k
 FIZ_ToExalted[4] = 39000;	-- working on Neutral -> Friendly, base offset 21k+12k+6k
 FIZ_ToExalted[5] = 33000;	-- working on Friendly -> Honored, base offset 21k+12k
-FIZ_ToExalted[6] = 21000;	-- working on honoured -> revered, base offset 21k
-FIZ_ToExalted[7] = 0;	-- working on revered -> exalted, so no base offset
-FIZ_ToExalted[8] = 0;	-- already at exalted -> no offset
+FIZ_ToExalted[6] = 21000;	-- working on Honored -> Revered, base offset 21k
+FIZ_ToExalted[7] = 0;	-- working on Revered -> Exalted, so no base offset
+FIZ_ToExalted[8] = 0;	-- already at Exalted -> no offset
 
 FIZ_ToBFF = {}	--> Friendship levels:
 FIZ_ToBFF[0] = 42999;	--> 1 - Stranger: 0-8400
@@ -98,18 +98,17 @@ FIZ_Enchan = false
 FIZ_Engin = false
 FIZ_Incrip = false
 FIZ_Alche = false
---- Race/Side/Dificulty
+--- Race/Side/Difficulty
 FIZ_IsHuman = false
 FIZ_IsDeathKnight = false
 FIZ_IsAlliance = false
 FIZ_IsHorde = false
 FIZ_IsHeroic=false
 -- Guild Tracking
-FIZ_GuildPerk = 0
 FIZ_GuildName = nil
 -- Guild rep cap
-FIZ_CapIndex = nil
-FIZ_Tuesday = nil
+-- FIZ_CapIndex = nil
+-- FIZ_Tuesday = nil
 
 ------------------------
 -- _02_ Addon Startup --
@@ -122,7 +121,6 @@ function FIZ_OnLoad(self)
 	self:RegisterEvent("VARIABLES_LOADED")
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:RegisterEvent("PLAYER_LOGIN")
-	self:RegisterEvent("GUILD_PERK_UPDATE")
 
 	-- Slash commands for CLI
 	SLASH_FIZ1 = "/factionizer"
@@ -247,8 +245,6 @@ function FIZ_OnEvent(self, event, ...)
 			FIZ_UpdateList_Update()
 		end
 
-	elseif ( event == "GUILD_PERK_UPDATE") then
-		FIZ_UpdateGuildPerk()
 	end
 
 end
@@ -268,7 +264,6 @@ function FIZ_OnUpdate(self)
 			FIZ_UpdateRequest = nil
 			--FIZ_Print("Stopping updates")
 		end
-		FIZ_UpdateGuildPerk()
 	end
 end
 
@@ -374,12 +369,6 @@ function FIZ_Init()
 
 	if (IsInGuild()) then
 		if (FIZ_GuildName == nil or FIZ_GuildName == "") then FIZ_GuildName = GetGuildInfo("player") end
-		local guildLevel = GetGuildLevel();
-		if (guildLevel >= 12) then
-			FIZ_GuildPerk = 2 -- 10% bonus to rep
-		elseif (guildLevel >= 4) then
-			FIZ_GuildPerk = 1 -- 5% bonus to rep
-		end
 	end
 
 	if (race and faction and locFaction and FIZ_Player and FIZ_Realm) then
@@ -399,7 +388,7 @@ function FIZ_Init()
 			FIZ_IsHorde = true
 		end
 
-		FIZ_InitFactor(FIZ_IsHuman,FIZ_GuildPerk)
+		FIZ_InitFactor(FIZ_IsHuman)
 
 		-- Initialize Faction information
 		local locale = GetLocale()
@@ -1149,34 +1138,7 @@ end
 --------------------------
 -- _22_ Guild perk Update
 --------------------------
-function FIZ_UpdateGuildPerk()
-	local warn = false
-	if (IsInGuild()) then
-		local guildName = GetGuildInfo("player")
-		--FIZ_Print("Checking guild name ["..tostring(FIZ_GuildName).."] against ["..tostring(guildName).."]")
-		if (FIZ_GuildName == nil or FIZ_GuildName == "" and guildName) then
-			FIZ_GuildName = guildName
-			warn = true
-			--FIZ_Print("Updating guild name from ["..tostring(FIZ_GuildName).."] to ["..tostring(guildName).."]")
-		end
-
-		local guildLevel = GetGuildLevel();
-		if (guildLevel >= 12) and (FIZ_GuildPerk < 2) then
-			warn = true
-		elseif (guildLevel >= 4) and (FIZ_GuildPerk < 1) then
-			warn = true
-		end
-		--FIZ_Print("UpdatePerk: level "..tostring(guildLevel).." - perk "..tostring(FIZ_GuildPerk))
-	--else
-		--FIZ_Print("UpdatePerk: not in guild")
-	end
-
-	if (warn) then
-		--FIZ_Print("Re-Initing after guild perk update")
-		FIZ_InitComplete = nil
-		FIZ_Init()
-	end
-end
+-- obsolete
 
 --------------------------
 -- _23_ Guild rep cap handling
