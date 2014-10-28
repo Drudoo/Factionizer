@@ -3781,35 +3781,9 @@ function FIZ_OptionsDefault()
 end
 
 --------------------------
--- _22_ Guild perk Update
+-- _22_ Rep Main Window
 --------------------------
--- obsolete
 
---------------------------
--- _23_ Guild rep cap handling
---------------------------
-------------------------------------------------------------
-function FIZ_GuildFrame_OnLoad(...)
-	-- to Guild frame is now loaded, we can now attach our elements
-	--FIZ_Print("----- OnLoad called ---------------")
-	if (GuildFactionBar) then
-		FIZ_GuildFactionBar:SetParent("GuildFactionBar")
-		FIZ_GuildFactionBarCapHeader:SetPoint("BOTTOMLEFT", "GuildFactionBar", "TOPLEFT", 0, 10)
-		FIZ_GuildFactionBarCapText:SetPoint("LEFT", "FIZ_GuildFactionBarCapHeader", "RIGHT", 2, 0)
-	end
-end
-
-------------------------------------------------------------
-function FIZ_OnLoadGuildFactionBar(self)
-	hooksecurefunc("GuildFrame_LoadUI", FIZ_GuildFrame_OnLoad)
-
-	FIZ_GuildFactionBarCapHeader:SetText(FIZ_TXT.weeklyCap)
-	FIZ_GuildFactionBarCapText:SetText("")
-end	
-
----------------------------
--- _9_ Rep Main Window   --
----------------------------
 function FIZ_SortByStanding(i,factionIndex,factionRow,factionBar,factionBarPreview,factionTitle,factionButton,factionStanding,factionBackground)
 -- v rfl SBS
 
@@ -4070,3 +4044,26 @@ function FIZ_OriginalRepOrder(i,factionIndex,factionRow,factionBar,factionBarPre
 	end
 -- v rfl 1.6.1
 end
+
+--------------------------
+-- _23_ Guild rep cap handling
+--------------------------
+------------------------------------------------------------
+--function FIZ_GuildFrame_OnLoad(...)
+	-- to Guild frame is now loaded, we can now attach our elements
+	--FIZ_Print("----- OnLoad called ---------------")
+--	if (GuildFactionBar) then
+--		FIZ_GuildFactionBar:SetParent("GuildFactionBar")
+--		FIZ_GuildFactionBarCapHeader:SetPoint("BOTTOMLEFT", "GuildFactionBar", "TOPLEFT", 0, 10)
+--		FIZ_GuildFactionBarCapText:SetPoint("LEFT", "FIZ_GuildFactionBarCapHeader", "RIGHT", 2, 0)
+--	end
+--end
+
+------------------------------------------------------------
+--function FIZ_OnLoadGuildFactionBar(self)
+--	hooksecurefunc("GuildFrame_LoadUI", FIZ_GuildFrame_OnLoad)
+
+--	FIZ_GuildFactionBarCapHeader:SetText(FIZ_TXT.weeklyCap)
+--	FIZ_GuildFactionBarCapText:SetText("")
+--end	
+
