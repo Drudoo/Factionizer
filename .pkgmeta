@@ -1,4 +1,4 @@
-package-as: factionizer
+package-as: Factionizer
 
 externals:
   Libs/LibStub:

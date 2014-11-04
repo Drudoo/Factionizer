@@ -9,7 +9,8 @@
 ## SavedVariablesPerCharacter: FIZ_Suppressed
 ## OptionalDeps: Ace3, LibQTip-1.0, LibStub, CallbackHandler-1.0
 
-Content.lua
-Mapping.lua
+embeds.xml
+content.lua
+mapping.lua
 locale.xml
 Factionizer.xml
