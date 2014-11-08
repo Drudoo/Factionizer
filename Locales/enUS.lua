@@ -115,6 +115,7 @@ FIZ_TXT.SSP	= "Southsea Pirate"
 FIZ_TXT.Wa	= "Wastewander"	
 FIZ_TXT.VCm	= "Any Venture Co. mob"	
 FIZ_TXT.Mob.MoshOgg_Spellcrafter = "Mosh'Ogg Spellcrafter"
+FIZ_TXT.Mob.BoulderfistOgre = "Boulderfist Ogre"
 -- Quest Details		
 FIZ_TXT.cdq	= "Main city cooking daily quests"	
 FIZ_TXT.coq	= "Other city cooking daily quests"	

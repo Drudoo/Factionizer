@@ -114,7 +114,8 @@ FIZ_TXT.BB	= "Bloodsail Bukanier"
 FIZ_TXT.SSP	= "Southsea Piraten"
 FIZ_TXT.Wa	= "Wastewander"
 FIZ_TXT.VCm	= "Venture Co. mob"
-
+FIZ_TXT.Mob.MoshOgg_Spellcrafter = "Zauberkundiger der Mosh'Ogg"
+FIZ_TXT.Mob.BoulderfistOgre = "Oger der Felsfäuste"
 -- Quest Details	
 FIZ_TXT.cdq	= "Andere Stadt tägliche Koch-Quests"
 FIZ_TXT.coq	= "Andere Stadt tägliche Koch-Quests"

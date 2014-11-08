@@ -8,6 +8,7 @@ BINDING_NAME_SHOWCONFIG	= "Afficher les options fenêtre"
 BINDING_NAME_SHOWDETAILS	= "Fenêtre Montrer détail réputation"
 	
 FIZ_TXT	= {}
+FIZ_TXT.Mob = {}
 -- help	
 FIZ_TXT.help	= "Un outil pour gérer votre réputation"
 FIZ_TXT.command	= "Impossible d'analyser commande"
@@ -113,6 +114,8 @@ FIZ_TXT.BB	= "Bloodsail Buccaneer"
 FIZ_TXT.SSP	= "Southsea Pirate"
 FIZ_TXT.Wa	= "Wastewander"
 FIZ_TXT.VCm	= "Any Venture Co. mob"
+FIZ_TXT.Mob.MoshOgg_Spellcrafter = "Magicien mosh'Ogg"
+FIZ_TXT.Mob.BoulderfistOgre = "Ogre rochepoing"
 -- Quest Details	
 FIZ_TXT.cdq	= "principale ville cuisine quêtes journalières"
 FIZ_TXT.coq	= "autre ville cuisine quêtes journalières"

@@ -8,6 +8,7 @@ BINDING_NAME_SHOWCONFIG	= "Показать окно опций"
 BINDING_NAME_SHOWDETAILS	= "Отображение детальной информации о репутации"
 	
 FIZ_TXT	= {}
+FIZ_TXT.Mob = {}
 -- help	
 FIZ_TXT.help	= "Инструментарий работы с репутацией"
 FIZ_TXT.command	= "Невозможно разобрать команду"
@@ -113,6 +114,8 @@ FIZ_TXT.BB	= "Пираты Кровавого Паруса"
 FIZ_TXT.SSP	= "пирата Южных морей"
 FIZ_TXT.Wa	= "шайки Скитальцев Пустыни"
 FIZ_TXT.VCm	= "Любой член торговой компании"
+FIZ_TXT.Mob.MoshOgg_Spellcrafter = "Чаротвор Мош'Огг"
+FIZ_TXT.Mob.BoulderfistOgre = "Огр из клана Тяжелого Кулака"
 -- Quest Details	
 FIZ_TXT.cdq	= "Главный город кулинарные ежедневных заданий"
 FIZ_TXT.coq	= "Ежедневные кулинарные квесты других городов"

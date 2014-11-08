@@ -8,6 +8,7 @@ BINDING_NAME_SHOWCONFIG	= "Mostrar janela de opções"
 BINDING_NAME_SHOWDETAILS	= "Mostrar janela de detalhes de reputação"
 	
 FIZ_TXT	= {}
+FIZ_TXT.Mob = {}
 -- help	
 FIZ_TXT.help	= "Uma ferramenta para gerenciar sua reputação"
 FIZ_TXT.command	= "Não foi possível analisar comando"
@@ -113,6 +114,8 @@ FIZ_TXT.BB	= "Bucaneiros da Vela Sangrenta"
 FIZ_TXT.SSP	= "Pirata dos Mares do Sul"
 FIZ_TXT.Wa	= "desperdício errante"
 FIZ_TXT.VCm	= "Qualquer Empreendimentos S.A."
+FIZ_TXT.Mob.MoshOgg_Spellcrafter = "Feitífice Mosh'Ogg"
+FIZ_TXT.Mob.BoulderfistOgre = "Ogro Punho de Pedra"
 -- Quest Details	
 FIZ_TXT.cdq	= "Principal cidade cozinhar quests diárias"
 FIZ_TXT.coq	= "Outra cidade cozinhar quests diárias"
