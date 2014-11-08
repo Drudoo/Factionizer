@@ -7,7 +7,8 @@ BINDING_HEADER_FACTIONIZER	= "Factionizer"
 BINDING_NAME_SHOWCONFIG	= "Show options window"	
 BINDING_NAME_SHOWDETAILS	= "Show reputation detail window"	
 		
-FIZ_TXT	= {}	
+FIZ_TXT	= {}
+FIZ_TXT.Mob = {}
 -- help		
 FIZ_TXT.help	= "A tool to manage your reputation"	
 FIZ_TXT.command	= "Could not parse command"	
@@ -113,6 +114,7 @@ FIZ_TXT.BB	= "Bloodsail Buccaneer"
 FIZ_TXT.SSP	= "Southsea Pirate"	
 FIZ_TXT.Wa	= "Wastewander"	
 FIZ_TXT.VCm	= "Any Venture Co. mob"	
+FIZ_TXT.Mob.MoshOgg_Spellcrafter = "Mosh'Ogg Spellcrafter"
 -- Quest Details		
 FIZ_TXT.cdq	= "Main city cooking daily quests"	
 FIZ_TXT.coq	= "Other city cooking daily quests"	

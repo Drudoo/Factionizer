@@ -1,4 +1,330 @@
 function FIZ_InitEnFactionGains(guildName, guildCapBase)
+local zone = {}
+--Kalimdor
+zone.Kalimdor = 13						-- Kalimdor
+zone.AhnQiraj_The_Fallen_Kingdom = 772	-- Ahn'Qiraj: The Fallen Kingdom
+zone.Ammen_Vale = 894					-- Ammen Vale
+zone.Ashenvale = 43						-- Ashenvale
+zone.Azshara = 181						-- Azshara
+zone.Azuremyst_Isle = 464				-- Azuremyst Isle
+zone.Bloodmyst_Isle = 476				-- Bloodmyst Isle
+zone.Camp_Narache = 890					-- Camp Narache
+zone.Darkshore = 42						-- Darkshore
+zone.Darnassus = 381					-- Darnassus
+zone.Desolace = 101						-- Desolace
+zone.Durotar = 4						-- Durotar
+zone.Dustwallow_Marsh = 141				-- Dustwallow Marsh
+zone.Echo_Isles = 891					-- Echo Isles
+zone.Felwood = 182						-- Felwood
+zone.Feralas = 121						-- Feralas
+zone.Molten_Front = 795					-- Molten Front
+zone.Moonglade = 241					-- Moonglade
+zone.Mount_Hyjal = 606					-- Mount Hyjal
+zone.Mulgore = 9						-- Mulgore
+zone.Northern_Barrens = 11				-- Northern Barrens
+zone.Orgrimmar = 321					-- Orgrimmar
+zone.Shadowglen = 888					-- Shadowglen
+zone.Silithus = 261						-- Silithus
+zone.Southern_Barrens = 607				-- Southern Barrens
+zone.Stonetalon_Mountains = 81			-- Stonetalon Mountains
+zone.Tanaris = 161						-- Tanaris
+zone.Teldrassil = 41					-- Teldrassil
+zone.The_Exodar = 471					-- The Exodar
+zone.Thousand_Needles = 61				-- Thousand Needles
+zone.Thunder_Bluff = 362				-- Thunder Bluff
+zone.Uldum = 720						-- Uldum
+zone.UnGoro_Crater = 201				-- Un'Goro Crater
+zone.Valley_of_Trials = 889				-- Valley of Trials
+zone.Winterspring = 281					-- Winterspring
+
+-- Eastern Kingdoms
+zone.Eastern_Kingdoms = 14				-- Eastern Kingdoms
+zone.Abyssal_Depths = 614				-- Abyssal Depths
+zone.Arathi_Highlands = 16				-- Arathi Highlands
+zone.Badlands = 17						-- Badlands
+zone.Blasted_Lands = 19					-- Blasted Lands
+zone.Burning_Steppes = 29				-- Burning Steppes
+zone.Coldridge_Valley = 866				-- Coldridge Valley
+zone.Deadwind_Pass = 32					-- Deadwind Pass
+zone.Deathknell = 892					-- Deathknell
+zone.Dun_Morogh = 27					-- Dun Morogh
+zone.Duskwood = 34						-- Duskwood
+zone.Eastern_Plaguelands = 23			-- Eastern Plaguelands
+zone.Elwynn_Forest = 30					-- Elwynn Forest
+zone.Eversong_Woods = 462				-- Eversong Woods
+zone.Ghostlands = 463					-- Ghostlands
+zone.Gilneas = 545						-- Gilneas
+zone.Gilneas_City = 611					-- Gilneas City
+zone.Hillsbrad_Foothills = 24			-- Hillsbrad Foothills
+zone.Ironforge = 341					-- Ironforge
+zone.Isle_of_QuelDanas = 499			-- Isle of Quel'Danas
+zone.Kelpthar_Forest = 610				-- Kelp'thar Forest
+zone.Loch_Modan = 35					-- Loch Modan
+zone.New_Tinkertown = 895				-- New Tinkertown
+zone.Northern_Stranglethorn = 37		-- Northern Stranglethorn
+zone.Northshire = 864					-- Northshire
+zone.Redridge_Mountains = 36			-- Redridge Mountains
+zone.Ruins_of_Gilneas = 684				-- Ruins of Gilneas
+zone.Ruins_of_Gilneas_City = 685		-- Ruins of Gilneas City
+zone.Searing_Gorge = 28					-- Searing Gorge
+zone.Shimmering_Expanse = 615			-- Shimmering Expanse
+zone.Silvermoon_City = 480				-- Silvermoon City
+zone.Silverpine_Forest = 21				-- Silverpine Forest
+zone.Stormwind_City = 301				-- Stormwind City
+zone.Stranglethorn_Vale = 689			-- Stranglethorn Vale
+zone.Sunstrider_Isle = 893				-- Sunstrider Isle
+zone.Swamp_of_Sorrows = 38				-- Swamp of Sorrows
+zone.The_Cape_of_Stranglethorn = 673	-- The Cape of Stranglethorn
+zone.The_Hinterlands = 26				-- The Hinterlands
+zone.The_Scarlet_Enclave = 502			-- The Scarlet Enclave
+zone.Tirisfal_Glades = 20				-- Tirisfal Glades
+zone.Tol_Barad = 708					-- Tol Barad
+zone.Tol_Barad_Peninsula = 709			-- Tol Barad Peninsula
+zone.Twilight_Highlands = 700			-- Twilight Highlands
+zone.Undercity = 382					-- Undercity
+zone.Vashjir = 613						-- Vashj'ir
+zone.Western_Plaguelands = 22			-- Western Plaguelands
+zone.Westfall = 39						-- Westfall
+zone.Wetlands = 40						-- Wetlands
+
+-- Outland
+zone.Outland = 466						-- Outland
+zone.Blades_Edge_Mountains = 475		-- Blade's Edge Mountains
+zone.Hellfire_Peninsula = 465			-- Hellfire Peninsula
+zone.Nagrand = 477						-- Nagrand
+zone.Netherstorm = 479					-- Netherstorm
+zone.Shadowmoon_Valley = 473			-- Shadowmoon Valley
+zone.Shattrath_City = 481				-- Shattrath City
+zone.Terokkar_Forest = 478				-- Terokkar Forest
+zone.Zangarmarsh = 467					-- Zangarmarsh
+
+-- Northrend
+zone.Northrend = 485					-- Northrend
+zone.Borean_Tundra = 486				-- Borean Tundra
+zone.Crystalsong_Forest = 510			-- Crystalsong Forest
+zone.Dalaran = 504						-- Dalaran
+zone.Dragonblight = 488					-- Dragonblight
+zone.Grizzly_Hills = 490				-- Grizzly Hills
+zone.Howling_Fjord = 491				-- Howling Fjord
+zone.Hrothgars_Landing = 541			-- Hrothgar's Landing
+zone.Icecrown = 492						-- Icecrown
+zone.Sholazar_Basin = 493				-- Sholazar Basin
+zone.The_Storm_Peaks = 495				-- The Storm Peaks
+zone.Wintergrasp = 501					-- Wintergrasp
+zone.ZulDrak = 496						-- Zul'Drak
+
+-- The Maelstrom
+zone.The_Maelstrom = 751				-- The Maelstrom
+zone.Deepholm = 640						-- Deepholm
+zone.Kezan = 605						-- Kezan
+zone.The_Lost_Isles = 544				-- The Lost Isles
+zone.The_Maelstrom2 = 737				-- The Maelstrom
+
+-- Pandaria
+zone.Pandaria = 862						-- Pandaria
+zone.Dread_Wastes = 858					-- Dread Wastes
+zone.Isle_of_Giants = 929				-- Isle of Giants
+zone.Isle_of_Thunder = 928				-- Isle of Thunder
+zone.Krasarang_Wilds = 857				-- Krasarang Wilds
+zone.Kun_Lai_Summit = 809				-- Kun-Lai Summit
+zone.Shrine_of_Seven_Stars = 905		-- Shrine of Seven Stars
+zone.Shrine_of_Two_Moons = 903			-- Shrine of Two Moons
+zone.The_Jade_Forest = 806				-- The Jade Forest
+zone.The_Veiled_Stair = 873				-- The Veiled Stair
+zone.The_Wandering_Isle = 808			-- The Wandering Isle
+zone.Timeless_Isle = 951				-- Timeless Isle
+zone.Townlong_Steppes = 810				-- Townlong Steppes
+zone.Vale_of_Eternal_Blossoms = 811		-- Vale of Eternal Blossoms
+zone.Valley_of_the_FourvWind = 807		-- Valley of the Four Wind
+
+-- Draenor
+zone.Draenor = 962						-- Draenor
+zone.Ashran = 978						-- Ashran
+zone.Frostfire_Ridge = 941				-- Frostfire Ridge
+zone.Frostwall = 976					-- Frostwall
+zone.Gorgrond = 949						-- Gorgrond
+zone.Lunarfall = 971					-- Lunarfall
+zone.Nagrand_WoD = 950					-- Nagrand
+zone.Shadowmoon_Valley = 947			-- Shadowmoon Valley
+zone.Spires_of_Arak = 948				-- Spires of Arak
+zone.Stormshield = 1009					-- Stormshield
+zone.Talador = 946						-- Talador
+zone.Tanaan_Jungle = 945				-- Tanaan Jungle
+zone.Tanaan_Jungle_Assault_on_the_Dark_Portal = 970				-- Tanaan Jungle - Assault on the Dark Portal
+zone.Warspear = 1011					-- Warspear
+
+-- Battlegrounds
+zone.Alterac_Valley = 401				-- Alterac Valley
+zone.Arathi_Basin = 461					-- Arathi Basin
+zone.Deepwind_Gorge = 935				-- Deepwind Gorge
+zone.Eye_of_the_Storm = 482				-- Eye of the Storm
+zone.Isle_of_Conquest = 540				-- Isle of Conquest
+zone.Silvershard_Mines = 860			-- Silvershard Mines
+zone.Strand_of_the_Ancients = 512		-- Strand of the Ancients
+zone.Temple_of_Kotmogu = 856			-- Temple of Kotmogu
+zone.The_Battle_for_Gilneas = 736		-- The Battle for Gilneas
+zone.Twin_Peaks = 626					-- Twin Peaks
+zone.Warsong_Gulch = 443				-- Warsong Gulch
+
+-- Scenarios
+zone.A_Brewing_Storm = 878				-- A Brewing Storm
+zone.A_Little_Patience = 912			-- A Little Patience
+zone.Arena_of_Annihilation = 899		-- Arena of Annihilation
+zone.Assault_on_Zanvess = 883			-- Assault on Zan'vess
+zone.Battle_on_the_High_Seas = 940		-- Battle on the High Seas
+zone.Blood_in_the_Snow = 939			-- Blood in the Snow
+zone.Brewmoon_Festival = 884			-- Brewmoon Festival
+zone.Celestial_Tournament = 955			-- Celestial Tournament
+zone.Crypt_of_Forgotten_Kings = 900		-- Crypt of Forgotten Kings
+zone.Dagger_in_the_Dark = 914			-- Dagger in the Dark
+zone.Dark_Heart_of_Pandaria = 937		-- Dark Heart of Pandaria
+zone.Domination_Point_H = 920			-- Domination Point (H)
+zone.Greenstone_Village = 880			-- Greenstone Village
+zone.Lions_Landing_A = 911				-- Lion's Landing (A)
+zone.The_Secrets_of_Ragefire = 938		-- The Secrets of Ragefire
+zone.Theramores_Fall_A = 906			-- Theramore's Fall (A)
+zone.Theramores_Fall_H = 851			-- Theramore's Fall (H)
+zone.Unga_Ingoo = 882					-- Unga Ingoo
+
+-- Classic Dungeons
+zone.Blackfathom_Deeps = 688			-- Blackfathom Deeps
+zone.Blackrock_Depths = 704				-- Blackrock Depths
+zone.Blackrock_Spire = 721				-- Blackrock Spire
+zone.Dire_Maul = 699					-- Dire Maul
+zone.Gnomeregan = 691					-- Gnomeregan
+zone.Maraudon = 750						-- Maraudon
+zone.Ragefire_Chasm = 680				-- Ragefire Chasm
+zone.Razorfen_Downs = 760				-- Razorfen Downs
+zone.Razorfen_Kraul = 761				-- Razorfen Kraul
+zone.Shadowfang_Keep = 764				-- Shadowfang Keep
+zone.Stratholme = 765					-- Stratholme
+zone.The_Deadmines = 756				-- The Deadmines
+zone.The_Stockade = 690					-- The Stockade
+zone.The_Temple_of_AtalHakkar = 687		-- The Temple of Atal'Hakkar
+zone.Uldaman = 692						-- Uldaman
+zone.Wailing_Caverns = 749				-- Wailing Caverns
+zone.ZulFarrak = 686					-- Zul'Farrak
+
+-- Classic Raids
+zone.Blackwing_Lair = 755				-- Blackwing Lair
+zone.Molten_Core = 696					-- Molten Core
+zone.Ruins_of_AhnQiraj = 717			-- Ruins of Ahn'Qiraj
+zone.Temple_of_AhnQiraj = 766			-- Temple of Ahn'Qiraj
+
+-- Burning Crusade Dungeons
+zone.Auchenai_Crypts = 722				-- Auchenai Crypts
+zone.Hellfire_Ramparts = 797			-- Hellfire Ramparts
+zone.Magisters_Terrace = 798			-- Magisters' Terrace
+zone.Mana_Tombs = 732					-- Mana-Tombs
+zone.Old_Hillsbrad_Foothills = 734		-- Old Hillsbrad Foothills
+zone.Sethekk_Halls = 723				-- Sethekk Halls
+zone.Shadow_Labyrinth = 724				-- Shadow Labyrinth
+zone.The_Arcatraz = 731					-- The Arcatraz
+zone.The_Black_Morass = 733				-- The Black Morass
+zone.The_Blood_Furnace = 725			-- The Blood Furnace
+zone.The_Botanica = 729					-- The Botanica
+zone.The_Mechanar = 730					-- The Mechanar
+zone.The_Shattered_Halls = 710			-- The Shattered Halls
+zone.The_Slave_Pens = 728				-- The Slave Pens
+zone.The_Steamvault = 727				-- The Steamvault
+zone.The_Underbog = 726					-- The Underbog
+
+-- Burning Crusade Raids
+zone.Black_Temple = 796					-- Black Temple
+zone.Gruuls_Lair = 776					-- Gruul's Lair
+zone.Hyjal_Summit = 775					-- Hyjal Summit
+zone.Karazhan = 799						-- Karazhan
+zone.Magtheridons_Lair = 779			-- Magtheridon's Lair
+zone.Serpentshrine_Cavern = 780			-- Serpentshrine Cavern
+zone.Sunwell_Plateau = 789				-- Sunwell Plateau
+zone.The_Eye = 782						-- The Eye
+
+-- Wrath Dungeons
+zone.Ahnkahet_The_Old_Kingdom = 522		-- Ahn'kahet: The Old Kingdom
+zone.Azjol_Nerub = 533					-- Azjol-Nerub
+zone.DrakTharon_Keep = 534				-- Drak'Tharon Keep
+zone.Gundrak = 530						-- Gundrak
+zone.Halls_o_Lightning = 525			-- Halls of Lightning
+zone.Halls_of_Reflection = 603			-- Halls of Reflection
+zone.Halls_of_Stone = 526				-- Halls of Stone
+zone.Pit_of_Saron = 602					-- Pit of Saron
+zone.The_Culling_of_Stratholme = 521	-- The Culling of Stratholme
+zone.The_Forge_of_Souls = 601			-- The Forge of Souls
+zone.The_Nexus = 520					-- The Nexus
+zone.The_Oculus = 528					-- The Oculus
+zone.The_Violet_Hold = 536				-- The Violet Hold
+zone.Trial_of_the_Champion = 542		-- Trial of the Champion
+zone.Utgarde_Keep = 523					-- Utgarde Keep
+zone.Utgarde_Pinnacle = 524				-- Utgarde Pinnacle
+
+-- Wrath Raids
+zone.Icecrown_Citadel = 604				-- Icecrown Citadel
+zone.Naxxramas = 535					-- Naxxramas
+zone.Onyxias_Lair = 718					-- Onyxia's Lair
+zone.The_Eye_of_Eternity = 527			-- The Eye of Eternity
+zone.The_Obsidian_Sanctum = 531			-- The Obsidian Sanctum
+zone.The_Ruby_Sanctum = 609				-- The Ruby Sanctum
+zone.Trial_of_the_Crusader = 543		-- Trial of the Crusader
+zone.Ulduar = 529						-- Ulduar
+zone.Vault_of_Archavon = 532			-- Vault of Archavon
+
+-- Cataclysm Dungeons
+zone.Blackrock_Caverns = 753			-- Blackrock Caverns
+zone.End_Time = 820						-- End Time
+zone.Grim_Batol = 757					-- Grim Batol
+zone.Halls_of_Origination = 759			-- Halls of Origination
+zone.Hour_of_Twilight = 819				-- Hour of Twilight
+zone.Lost_City_of_thevTolvir = 747		-- Lost City of the Tol'vir
+zone.The_Stonecore = 768				-- The Stonecore
+zone.The_Vortex_Pinnacle = 769			-- The Vortex Pinnacle
+zone.Throne_of_the_Tides = 767			-- Throne of the Tides
+zone.Well_of_Eternity = 816				-- Well of Eternity
+zone.ZulAman = 781						-- Zul'Aman
+zone.ZulGurub = 793						-- Zul'Gurub
+
+-- Cataclysm Raids
+zone.Baradin_Hold = 752					-- Baradin Hold
+zone.Blackwing_Descent = 754			-- Blackwing Descent
+zone.Dragon_Soul = 824					-- Dragon Soul
+zone.Firelands = 800					-- Firelands
+zone.The_Bastion_of_Twilight = 758		-- The Bastion of Twilight
+zone.Throne_of_the_Four_Winds = 773		-- Throne of the Four Winds
+
+-- Pandaria Dungeons
+zone.Gate_of_the_Setting_Sun = 875		-- Gate of the Setting Sun
+zone.MoguShan_Palace = 885				-- Mogu'Shan Palace
+zone.Scarlet_Halls = 871				-- Scarlet Halls
+zone.Scarlet_Monastery = 874			-- Scarlet Monastery
+zone.Scholomance = 898					-- Scholomance
+zone.Shado_pan_Monastery = 877			-- Shado-pan Monastery
+zone.Siege_of_Niuzao_Temple = 887		-- Siege of Niuzao Temple
+zone.Stormstout_Brewery = 876			-- Stormstout Brewery
+zone.Temple_of_the_Jade_Serpen = 867	-- Temple of the Jade Serpen
+
+-- Pandaria Raids
+zone.Heart_of_Fear = 897				-- Heart of Fear
+zone.Mogushan_Vaults = 896				-- Mogu'shan Vaults
+zone.Siege_of_Orgrimmar = 953			-- Siege of Orgrimmar
+zone.Terrace_of_Endless_Spring = 886	-- Terrace of Endless Spring
+zone.Throne_of_Thunder = 930			-- Throne of Thunder
+
+-- Draenor Dungeons
+zone.Auchindoun = 984					-- Auchindoun
+zone.Bloodmaul_Slag_Mines = 964			-- Bloodmaul Slag Mines
+zone.Grimrail_Depot = 993				-- Grimrail Depot
+zone.Iron_Docks = 987					-- Iron Docks
+zone.Shadowmoon_Burial_Grounds = 969	-- Shadowmoon Burial Grounds
+zone.Skyreach = 989						-- Skyreach
+zone.The_Everbloom = 1008				-- The Everbloom
+zone.Upper_Blackrock_Spire = 995		-- Upper Blackrock Spire
+
+-- Draenor Raids
+zone.Highmaul = 994						-- Highmaul
+zone.Blackrock_Foundry = 988			-- Blackrock Foundry
+--[[
+]]--
+print("zone.Kalimdor: "..zone.Kalimdor)
+
 	if (FIZ_IsAlliance) then
 	-- Aliance Cities
 	-- Darnassus 69
@@ -127,8 +453,8 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddMob(946, 4, 8, 725, 15)
 		FIZ_AddInstance(946, 4, 8, 710, 1600, FALSE)
 		FIZ_AddInstance(946, 4, 8, 710, 2900, TRUE)
-		FIZ_AddMob(946, 4, 7, 710, 5)
-		FIZ_AddMob(946, 4, 8, 710, 15)
+		FIZ_AddMob(946, 4, 7, FIZ_TXT.Mob.MoshOgg_Spellcrafter, 5, zone.Northern_Stranglethorn) -- Mosh'Ogg Spellcrafter ID=710
+		FIZ_AddMob(946, 4, 8, FIZ_TXT.Mob.MoshOgg_Spellcrafter, 15, zone.Northern_Stranglethorn) -- Mosh'Ogg Spellcrafter ID=710
 		FIZ_AddQuest(946, 4, 7, 13410, 150)
 	-- Kurenai 978
 		FIZ_AddQuest(978, 4, 8, 10476, 500, {[25433] = 10})
@@ -310,10 +636,10 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddQuest(1174, 4, 8, 28863, 350)
 		FIZ_AddSpell(1174, 1, 8, 5, 1000)
 		FIZ_AddSpell(1174, 1, 8, 5, 1800)
-		FIZ_AddMob(1174, 1, 8, 1, 10, 5)
-		FIZ_AddMob(1174, 1, 8, 1, 15, 6)
-		FIZ_AddMob(1174, 1, 8, 4, 150, 5)
-		FIZ_AddMob(1174, 1, 8, 4, 250, 6)
+		FIZ_AddMob(1174, 1, 8, 1, 10, "3")
+		FIZ_AddMob(1174, 1, 8, 1, 15, "4")
+		FIZ_AddMob(1174, 1, 8, 4, 150, "3")
+		FIZ_AddMob(1174, 1, 8, 4, 250, "4")
 	-- Baradin's Wardens 1177
 	---- from zone Tol Barad
 	------ Tol Barad Peninsula
@@ -763,10 +1089,10 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddQuest(1172, 4, 8, 28872, 250)
 		FIZ_AddSpell(1172, 1, 8, 5, 1000)
 		FIZ_AddSpell(1172, 1, 8, 5, 1800)
-		FIZ_AddMob(1172, 1, 8, 1, 10, 5)
-		FIZ_AddMob(1172, 1, 8, 1, 15, 6)
-		FIZ_AddMob(1172, 1, 8, 4, 150, 5)
-		FIZ_AddMob(1172, 1, 8, 4, 250, 6)
+		FIZ_AddMob(1172, 1, 8, 1, 10, "3")
+		FIZ_AddMob(1172, 1, 8, 1, 15, "4")
+		FIZ_AddMob(1172, 1, 8, 4, 150, "3")
+		FIZ_AddMob(1172, 1, 8, 4, 250, "4")
 	-- Hellscream's Reach 1178
 	---- from zone Tol Barad
 	------ Tol Barad Peninsula
@@ -868,6 +1194,8 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddQuest(1388, 4, 8, 32634, 150)
 		FIZ_AddQuest(1388, 4, 8, 32636, 150)
 		FIZ_AddQuest(1388, 4, 8, 32627, 150)
+		FIZ_AddQuest(1388, 4, 8, 32576, 200)
+		FIZ_AddQuest(1388, 4, 8, 32576, 200)
 		FIZ_AddQuest(1388, 4, 8, 32551, 150)
 		FIZ_AddQuest(1388, 4, 8, 32543, 150)
 		FIZ_AddQuest(1388, 4, 8, 32539, 150)
@@ -877,7 +1205,11 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddQuest(1388, 4, 8, 32554, 150)
 		FIZ_AddQuest(1388, 4, 8, 32297, 150)
 		FIZ_AddQuest(1388, 4, 8, 32300, 150)
+		FIZ_AddQuest(1388, 4, 8, 32585, 200)
 		FIZ_AddQuest(1388, 4, 8, 32573, 150)
+		FIZ_AddQuest(1388, 4, 8, 32607, 400)
+		FIZ_AddQuest(1388, 4, 8, 32724, 200)
+		FIZ_AddQuest(1388, 4, 8, 32570, 150)
 		FIZ_AddQuest(1388, 4, 8, 32527, 150)
 		FIZ_AddQuest(1388, 4, 8, 32540, 150)
 		FIZ_AddQuest(1388, 4, 8, 32538, 150)
@@ -905,6 +1237,7 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddQuest(1388, 4, 8, 32704, 2150)
 		FIZ_AddQuest(1388, 4, 8, 32700, 1250)
 		FIZ_AddQuest(1388, 4, 8, 32608, 400)
+		FIZ_AddQuest(1388, 4, 8, 32582, 200)
 		FIZ_AddQuest(1388, 4, 8, 32532, 150)
 		FIZ_AddQuest(1388, 4, 8, 32550, 150)
 		FIZ_AddQuest(1388, 4, 8, 32209, 150)
@@ -928,6 +1261,7 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddQuest(1388, 4, 8, 32206, 150)
 		FIZ_AddQuest(1388, 4, 8, 32233, 150)
 		FIZ_AddQuest(1388, 4, 8, 32232, 150)
+		FIZ_AddQuest(1388, 4, 8, 32583, 200)
 	end
 	-- Steamwheedle Cartel
 	-- Booty Bay 21
@@ -972,7 +1306,8 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddMob(470, 1, 7, 15, 7.5, "33")
 		FIZ_AddMob(470, 1, 8, 15, 7.5, "33")
 		FIZ_AddMob(470, 1, 7, 17, 12.5, "440")
-		FIZ_AddMob(470, 1, 8, "Cap'n Garvey & Alicia Cuthbert", 12.5, "17")
+		FIZ_AddMob(470, 1, 8,"34750", 12.5, "11")
+		FIZ_AddMob(470, 1, 8, "Cap'n Garvey & Alicia Cuthbert", 12.5, "11")
 		FIZ_AddQuest(470, 1, 3, 9267, 500, {[2589] = 1, [3371] = 1})
 	-- Bloodsail Buccaneers 87
 		FIZ_AddMob(87, 1, 7, "Booty Bay Bruiser & Elite", 25, "19946")
@@ -1435,26 +1770,26 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddQuest(1158, 4, 8, 29125, 150)
 		FIZ_AddInstance(1158, 4, 8, 5, 1000, FALSE)
 		FIZ_AddInstance(1158, 4, 8, 5, 1800, TRUE)
-		FIZ_AddMob(1158, 1, 8, 1, 10, 5)
-		FIZ_AddMob(1158, 1, 8, 1, 15, 6)
-		FIZ_AddMob(1158, 1, 8, 4, 150, 5)
-		FIZ_AddMob(1158, 1, 8, 4, 250, 6)
+		FIZ_AddMob(1158, 1, 8, 1, 10, "3")
+		FIZ_AddMob(1158, 1, 8, 1, 15, "4")
+		FIZ_AddMob(1158, 1, 8, 4, 150, "3")
+		FIZ_AddMob(1158, 1, 8, 4, 250, "4")
 	-- Ramkahen 1173
 		FIZ_AddSpell(1173, 1, 8, 5, 1000)
 		FIZ_AddSpell(1173, 1, 8, 5, 1800)
-		FIZ_AddMob(1173, 1, 8, 1, 10, 5)
-		FIZ_AddMob(1173, 1, 8, 1, 15, 6)
-		FIZ_AddMob(1173, 1, 8, 4, 150, 5)
-		FIZ_AddMob(1173, 1, 8, 4, 250, 6)
+		FIZ_AddMob(1173, 1, 8, 1, 10, "3")
+		FIZ_AddMob(1173, 1, 8, 1, 15, "4")
+		FIZ_AddMob(1173, 1, 8, 4, 150, "3")
+		FIZ_AddMob(1173, 1, 8, 4, 250, "4")
 		FIZ_AddQuest(1173, 4, 8, 28250, 150)
 		FIZ_AddQuest(1173, 4, 8, 28736, 250)
 	-- The Earthen Ring 1135
 		FIZ_AddSpell(1135, 1, 8, 5, 1000)
 		FIZ_AddSpell(1135, 1, 8, 5, 1800)
-		FIZ_AddMob(1135, 1, 8, 1, 10, 5)
-		FIZ_AddMob(1135, 1, 8, 1, 15, 6)
-		FIZ_AddMob(1135, 1, 8, 4, 150, 5)
-		FIZ_AddMob(1135, 1, 8, 4, 250, 6)
+		FIZ_AddMob(1135, 1, 8, 1, 10, "3")
+		FIZ_AddMob(1135, 1, 8, 1, 15, "4")
+		FIZ_AddMob(1135, 1, 8, 4, 150, "3")
+		FIZ_AddMob(1135, 1, 8, 4, 250, "4")
 	-- Therazane 1171
 		FIZ_AddSpell(1171, 1, 8, 5, 1000)
 		FIZ_AddSpell(1171, 1, 8, 5, 1800)
@@ -1468,25 +1803,85 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddQuest(1171, 4, 8, 27048, 250)
 		FIZ_AddQuest(1171, 5, 8, 28390, 350)
 		FIZ_AddQuest(1171, 5, 8, 28391, 350)
-		FIZ_AddMob(1171, 1, 8, 1, 10, 5)
-		FIZ_AddMob(1171, 1, 8, 1, 15, 6)
-		FIZ_AddMob(1171, 1, 8, 4, 150, 5)
-		FIZ_AddMob(1171, 1, 8, 4, 250, 6)
+		FIZ_AddMob(1171, 1, 8, 1, 10, "3")
+		FIZ_AddMob(1171, 1, 8, 1, 15, "4")
+		FIZ_AddMob(1171, 1, 8, 4, 150, "3")
+		FIZ_AddMob(1171, 1, 8, 4, 250, "4")
 	-- Mist of Pandaria
 	-- Golden Lotus 1269
+		FIZ_AddQuest(1269, 1, 8, 30481, 250)
+		FIZ_AddQuest(1269, 1, 8, 30264, 350)
+		FIZ_AddQuest(1269, 1, 8, 30283, 250)
+		FIZ_AddQuest(1269, 1, 8, 30342, 250)
+		FIZ_AddQuest(1269, 1, 8, 30320, 250)
+		FIZ_AddQuest(1269, 1, 8, 30289, 250)
+		FIZ_AddQuest(1269, 1, 8, 30296, 350)
+		FIZ_AddQuest(1269, 1, 8, 30339, 250)
+		FIZ_AddQuest(1269, 1, 8, 30312, 250)
+		FIZ_AddQuest(1269, 1, 8, 30284, 350)
+		FIZ_AddQuest(1269, 1, 8, 30338, 25)
+		FIZ_AddQuest(1269, 1, 8, 31755, 25)
+		FIZ_AddQuest(1269, 1, 8, 30304, 250)
+		FIZ_AddQuest(1269, 1, 8, 30305, 250)
+		FIZ_AddQuest(1269, 1, 8, 30311, 250)
+		FIZ_AddQuest(1269, 1, 8, 30200, 250)
+		FIZ_AddQuest(1269, 1, 8, 30293, 250)
+		FIZ_AddQuest(1269, 1, 8, 30239, 250)
+		FIZ_AddQuest(1269, 1, 8, 30316, 250)
+		FIZ_AddQuest(1269, 1, 8, 30245, 250)
+		FIZ_AddQuest(1269, 1, 8, 30196, 250)
+		FIZ_AddQuest(1269, 1, 8, 30243, 250)
+		FIZ_AddQuest(1269, 1, 8, 30193, 250)
+		FIZ_AddQuest(1269, 1, 8, 30236, 25)
+		FIZ_AddQuest(1269, 1, 8, 30287, 250)
+		FIZ_AddQuest(1269, 1, 8, 30244, 25)
+		FIZ_AddQuest(1269, 1, 8, 30192, 250)
+		FIZ_AddQuest(1269, 1, 8, 30288, 250)
+		FIZ_AddQuest(1269, 1, 8, 30444, 250)
+		FIZ_AddQuest(1269, 1, 8, 30299, 250)
+		FIZ_AddQuest(1269, 1, 8, 30301, 250)
+		FIZ_AddQuest(1269, 1, 8, 30298, 250)
+		FIZ_AddQuest(1269, 1, 8, 30231, 250)
+		FIZ_AddQuest(1269, 1, 8, 30235, 350)
+		FIZ_AddQuest(1269, 1, 8, 30238, 250)
 		FIZ_AddQuest(1269, 1, 8, 30261, 350)
+		FIZ_AddQuest(1269, 1, 8, 30247, 350)
+		FIZ_AddQuest(1269, 1, 8, 30292, 250)
+		FIZ_AddQuest(1269, 1, 8, 30232, 250)
+		FIZ_AddQuest(1269, 1, 8, 30205, 250)
+		FIZ_AddQuest(1269, 1, 8, 30206, 250)
+		FIZ_AddQuest(1269, 1, 8, 30309, 250)
+		FIZ_AddQuest(1269, 1, 8, 30294, 250)
+		FIZ_AddQuest(1269, 1, 8, 30265, 250)
+		FIZ_AddQuest(1269, 1, 8, 30190, 250)
+		FIZ_AddQuest(1269, 1, 8, 30191, 250)
+		FIZ_AddQuest(1269, 1, 8, 30340, 250)
+		FIZ_AddQuest(1269, 1, 8, 30290, 250)
+		FIZ_AddQuest(1269, 1, 8, 30291, 250)
 		FIZ_AddQuest(1269, 1, 8, 30242, 250)
 		FIZ_AddQuest(1269, 1, 8, 30240, 250)
+		FIZ_AddQuest(1269, 1, 8, 30250, 250)
+		FIZ_AddQuest(1269, 1, 8, 30204, 250)
+		FIZ_AddQuest(1269, 1, 8, 30225, 350)
 		FIZ_AddQuest(1269, 1, 8, 30306, 250)
-		FIZ_AddQuest(1269, 1, 8, 30280, 250)
-		FIZ_AddQuest(1269, 1, 8, 30277, 250)
-		FIZ_AddQuest(1269, 1, 8, 30243, 250)
-		FIZ_AddQuest(1269, 1, 8, 30266, 250)
+		FIZ_AddQuest(1269, 1, 8, 30248, 350)
+		FIZ_AddQuest(1269, 1, 8, 30314, 250)
+		FIZ_AddQuest(1269, 1, 8, 30307, 250)
+		FIZ_AddQuest(1269, 1, 8, 30302, 350)
+		FIZ_AddQuest(1269, 1, 8, 30237, 250)
+		FIZ_AddQuest(1269, 1, 8, 30632, 25)
+		FIZ_AddQuest(1269, 1, 8, 30281, 250)
+		FIZ_AddQuest(1269, 1, 8, 30482, 350)
+		FIZ_AddQuest(1269, 1, 8, 30310, 250)
+		FIZ_AddQuest(1269, 1, 8, 30228, 250)
+		FIZ_AddQuest(1269, 1, 8, 30249, 350)
+		FIZ_AddQuest(1269, 1, 8, 30341, 250)
+		FIZ_AddQuest(1269, 1, 8, 30246, 250)
+		FIZ_AddQuest(1269, 1, 8, 30234, 350)
+		FIZ_AddQuest(1269, 1, 8, 30251, 350)
+		FIZ_AddQuest(1269, 1, 8, 30285, 250)
+		FIZ_AddQuest(1269, 1, 8, 30227, 350)
 		FIZ_AddQuest(1269, 1, 8, 32648, 300)
-		FIZ_AddMob(1269, 1, 8, "All normal mobs", 20,811)
-		FIZ_AddMob(1269, 1, 8, "All rare mobs", 400, 811)
-		FIZ_AddMob(1269, 1, 8, "Jade Colossus", 100, 811)
-		FIZ_AddMob(1269, 1, 8, "Milau", 60, 811)
 	-- Shado-Pan 1270
 		FIZ_AddQuest(1270, 1, 8, 31198, 250)
 
@@ -1785,35 +2180,28 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 		FIZ_AddItems(1280, 1, 8, 1800, {[74652] = 5})
 		FIZ_AddQuest(1280, 1, 8, 30323, 2000)
 	-- Emperor Shaohao 1492
-		FIZ_AddQuest(1492, 1, 8, 33335, 250)
-		FIZ_AddQuest(1492, 1, 8, 33340, 250)
-		FIZ_AddQuest(1492, 1, 8, 33341, 250)
-		FIZ_AddQuest(1492, 1, 8, 33342, 250)
-		FIZ_AddQuest(1492, 1, 8, 33343, 250)
+    FIZ_AddQuest(1492, 1, 8, 33335, 250)
+    FIZ_AddQuest(1492, 1, 8, 33340, 250)
+    FIZ_AddQuest(1492, 1, 8, 33341, 250)
+    FIZ_AddQuest(1492, 1, 8, 33342, 250)
+    FIZ_AddQuest(1492, 1, 8, 33343, 250)
 		FIZ_AddQuest(1492, 1, 8, 33374, 250)
-		FIZ_AddMob(1492, 1, 7, "Archiereus of Flame", 50, 951)
-		FIZ_AddMob(1492, 1, 7, "Cinderfall", 40, 951)
-		FIZ_AddMob(1492, 1, 7, "Flintlord Gairan", 40, 951)
-		FIZ_AddMob(1492, 1, 7, "Urdur the Cauterizer", 40, 951)
-		FIZ_AddMob(1492, 1, 7, "Champion of the Black Flame", 30, 951)
-		FIZ_AddMob(1492, 1, 7, "High Priest of Ordos", 25, 951)
-		FIZ_AddMob(1492, 1, 7, "Blazebound Chanter", 20, 951)
-		FIZ_AddMob(1492, 1, 7, "Eternal Kiln", 20, 951)
-		FIZ_AddMob(1492, 1, 7, "Eternal Kilnmaster", 20, 951)
-		FIZ_AddMob(1492, 1, 7, "Jakur of Ordan", 20, 951)
-		FIZ_AddMob(1492, 1, 7, "Molten Guardian", 20, 951)
-		FIZ_AddMob(1492, 1, 7, "Watcher Osu", 20, 951)
-		FIZ_AddMob(1492, 1, 7, "Burning Berserker", 15, 951)
-		FIZ_AddMob(1492, 1, 7, "Ordon Fire-Watcher", 10, 951)
-		FIZ_AddMob(1492, 1, 7, "Ordon Oathguard", 10, 951)
-		FIZ_AddMob(1492, 1, 7, "Ordon Candlekeeper", 5, 951)
-	-- Shado-Pan Assault 1435
-		FIZ_AddQuest(1435, 1, 8, 32640, 300, {[94221] = 3})
-		FIZ_AddQuest(1435, 1, 8, 32641, 300, {[94221] = 3})
-		FIZ_AddQuest(1435, 1, 8, 32707, 200, {[94221] = 3})
-		FIZ_AddQuest(1435, 1, 8, 32708, 300)
-		FIZ_AddMob(1435, 1, 5, 1, 30, 930)
-		FIZ_AddMob(1435, 1, 8, 3, 30, 930)
+		FIZ_AddMob(1492, 1, 7, "Archiereus of Flame", 50)
+		FIZ_AddMob(1492, 1, 7, "Cinderfall", 40)
+		FIZ_AddMob(1492, 1, 7, "Flintlord Gairan", 40)
+		FIZ_AddMob(1492, 1, 7, "Urdur the Cauterizer", 40)
+		FIZ_AddMob(1492, 1, 7, "Champion of the Black Flame", 30)
+		FIZ_AddMob(1492, 1, 7, "High Priest of Ordos", 25)
+		FIZ_AddMob(1492, 1, 7, "Blazebound Chanter", 20)
+		FIZ_AddMob(1492, 1, 7, "Eternal Kiln", 20)
+		FIZ_AddMob(1492, 1, 7, "Eternal Kilnmaster", 20)
+		FIZ_AddMob(1492, 1, 7, "Jakur of Ordan", 20)
+		FIZ_AddMob(1492, 1, 7, "Molten Guardian", 20)
+		FIZ_AddMob(1492, 1, 7, "Watcher Osu", 20)
+		FIZ_AddMob(1492, 1, 7, "Burning Berserker", 15)
+		FIZ_AddMob(1492, 1, 7, "Ordon Fire-Watcher", 10)
+		FIZ_AddMob(1492, 1, 7, "Ordon Oathguard", 10)
+		FIZ_AddMob(1492, 1, 7, "Ordon Candlekeeper", 5)
 	-- Dead Factions
 	-- Shen'dralar 809
 		FIZ_AddQuest(809, 1, 8, 6, 1)
@@ -1833,3 +2221,4 @@ function FIZ_InitEnFactionGains(guildName, guildCapBase)
 	collectgarbage("collect")
 ---	print("Collected " .. (preGC-collectgarbage("count")) .. " kB of garbage fiz");
 end
+

@@ -8,6 +8,7 @@ BINDING_NAME_SHOWCONFIG	= "Optionen zeigen"
 BINDING_NAME_SHOWDETAILS	= "Ruf-Detailfenster zeigen"
 	
 FIZ_TXT	= {}
+FIZ_TXT.Mob = {}
 -- help	
 FIZ_TXT.help	= "Ein Addon, um Deinen Ruf zu managen"
 FIZ_TXT.command	= "Kommando nicht erkannt"
@@ -101,7 +102,7 @@ FIZ_TXT.quest	= "[Quest]"
 FIZ_TXT.instance	= "[Instanz]"
 FIZ_TXT.items	= "[Gegenstand]"
 FIZ_TXT.unknown	= "ist diesem Spieler nicht bekannt."
--- mob Details	
+-- mob Details
 FIZ_TXT.tmob	= "Trash Mobs"
 FIZ_TXT.oboss	= "andere Chef"
 FIZ_TXT.aboss	= "Alle Bosse"
@@ -113,6 +114,7 @@ FIZ_TXT.BB	= "Bloodsail Bukanier"
 FIZ_TXT.SSP	= "Southsea Piraten"
 FIZ_TXT.Wa	= "Wastewander"
 FIZ_TXT.VCm	= "Venture Co. mob"
+
 -- Quest Details	
 FIZ_TXT.cdq	= "Andere Stadt tägliche Koch-Quests"
 FIZ_TXT.coq	= "Andere Stadt tägliche Koch-Quests"
