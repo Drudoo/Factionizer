@@ -321,9 +321,7 @@ zone.Upper_Blackrock_Spire = 995		-- Upper Blackrock Spire
 -- Draenor Raids
 zone.Highmaul = 994						-- Highmaul
 zone.Blackrock_Foundry = 988			-- Blackrock Foundry
---[[
-]]--
-print("zone.Kalimdor: "..zone.Kalimdor)
+
 
 	if (FIZ_IsAlliance) then
 	-- Aliance Cities
