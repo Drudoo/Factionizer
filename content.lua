@@ -145,7 +145,7 @@ zone.Frostwall = 976					-- Frostwall
 zone.Gorgrond = 949						-- Gorgrond
 zone.Lunarfall = 971					-- Lunarfall
 zone.Nagrand_WoD = 950					-- Nagrand
-zone.Shadowmoon_Valley = 947			-- Shadowmoon Valley
+zone.Shadowmoon_Valley_WoD = 947		-- Shadowmoon Valley
 zone.Spires_of_Arak = 948				-- Spires of Arak
 zone.Stormshield = 1009					-- Stormshield
 zone.Talador = 946						-- Talador
@@ -795,9 +795,45 @@ zone.Blackrock_Foundry = 988			-- Blackrock Foundry
 		FIZ_AddQuest(1387, 4, 8, 32572, 150)
 		FIZ_AddQuest(1387, 4, 8, 32575, 150)
 		FIZ_AddQuest(1387, 4, 8, 32583, 200)
+	-- Warlords of Draenor
+	-- Council og Exarchs 1731
+		FIZ_AddMob(1731, 4, 8, "Special lvl 100 mobs at Darktide Roost", 15, zone.Shadowmoon_Valley_WoD) 
+		FIZ_AddMob(1731, 4, 8, "Normal lvl 100 mobs at Darktide Roost", 5, zone.Shadowmoon_Valley_WoD) 
+		FIZ_AddMob(1731, 4, 8, "Special lvl 100 mobs at Socrethar's Rise", 15, zone.Shadowmoon_Valley_WoD) 
+		FIZ_AddMob(1731, 4, 8, "Normal lvl 100 mobs at Socrethar's Rise", 5, zone.Shadowmoon_Valley_WoD) 
+		FIZ_AddMob(1731, 4, 8, "Special lvl 100 mobs at Pillars of Fate", 15, zone.Shadowmoon_Valley_WoD) 
+		FIZ_AddMob(1731, 4, 8, "Normal lvl 100 mobs at Pillars of Fate", 5, zone.Shadowmoon_Valley_WoD) 
+	-- Sha'tari Defense 1710
+		FIZ_AddMob(1710, 4, 5, "Rune Ritualist", 16, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Sargerei Fiendspeaker and Ritualist", 8, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Conniving Deathblade", 8, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Soul Guardian", 8, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Terrorwing Rider", 8, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Council Felcaller", 8, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Concubile of Lust", 8, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Conniving Shadowblade", 5, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Gorebound Insurgent", 5, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Fel Seer", 5, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Sargerei Felbringer and Summoner", 5, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Shadowbourne Felcaster", 5, zone.Talador) --Mob data is unreliable
+		FIZ_AddMob(1710, 4, 5, "Fel Spark", 1, zone.Talador) --Mob data is unreliable
+		-- FIZ_AddMob(1711, 4, 8, "lvl 100 mobs at Bladefury Hold", ?, zone.Talador) --No specific data on particular mobs
+	-- Wrynn's Vanguard 1682
+		--ADD CURRENCY: Artifact Fragment - 5 rep ea - currency-ID = 944
+		FIZ_AddItems(1682, 4, 8, 2500, {[112113] = 1, [112015] = 1, [112120] = 1, [112122] = 1, [112123] = 1, [112125] = 1, [112128] = 1})
+		FIZ_AddMob(1682, 4, 8, 82877, 2500, zone.Ashran)
+		FIZ_AddQuest(1682, 4, 8, 37475, 500)
+		FIZ_AddQuest(1682, 4, 8, 37476, 500)
+		FIZ_AddQuest(1682, 4, 8, 37477, 500)
+		FIZ_AddQuest(1682, 4, 8, 37478, 500)
+		FIZ_AddQuest(1682, 4, 8, 37481, 500)
+		FIZ_AddQuest(1682, 4, 8, 37482, 500)
+		FIZ_AddQuest(1682, 4, 8, 37297, 500)
+		FIZ_AddQuest(1682, 4, 8, 37298, 500)
 	end
+
 	if (FIZ_IsHorde) then
-	-- Hord Cities
+	-- Horde Cities
 	-- Darkspear Trolls 530
 		FIZ_AddQuest(530, 4, 8, 2, 65, "nil", FIZ_LIMIT_TYPE_Cook)
 		FIZ_AddQuest(530, 4, 8, 4, 65, "nil", FIZ_LIMIT_TYPE_Fish)
@@ -1260,6 +1296,36 @@ zone.Blackrock_Foundry = 988			-- Blackrock Foundry
 		FIZ_AddQuest(1388, 4, 8, 32233, 150)
 		FIZ_AddQuest(1388, 4, 8, 32232, 150)
 		FIZ_AddQuest(1388, 4, 8, 32583, 200)
+	-- Warlords of Draenor
+	-- Frostwolf Orcs 1445
+		FIZ_AddMob(1445, 4, 8, "Special lvl 100 mobs at Stonefury Cliffs", 15, zone.Frostfire_Ridge)
+		FIZ_AddMob(1445, 4, 8, "Normal lvl 100 mobs at Stonefury Cliffs", 5, zone.Frostfire_Ridge)
+		FIZ_AddMob(1445, 4, 8, "Special lvl 100 mobs at Magnarok", 15, zone.Frostfire_Ridge)
+		FIZ_AddMob(1445, 4, 8, "Normal lvl 100 mobs at Magnarok", 5, zone.Frostfire_Ridge)
+		FIZ_AddMob(1445, 4, 8, "Special lvl 100 mobs at Iron Siegeworks", 15, zone.Frostfire_Ridge)
+		FIZ_AddMob(1445, 4, 8, "Normal lvl 100 mobs at Iron Siegeworks", 5, zone.Frostfire_Ridge)
+	-- Laughing Skull Orcs 1708
+		FIZ_AddMob(1708, 4, 8, "Botani Vine-Weaver", 5, zone.Gorgrond)
+		FIZ_AddMob(1708, 4, 8, "Brine Lasher", 5, zone.Gorgrond)
+		FIZ_AddMob(1708, 4, 8, "Enthralled Mutant", 5, zone.Gorgrond)
+		FIZ_AddMob(1708, 4, 8, "Everbloom Shaper, Wasp and Waterspeaker", 5, zone.Gorgrond)
+		FIZ_AddMob(1708, 4, 8, "Twisted Guardian", 5, zone.Gorgrond)
+		FIZ_AddMob(1708, 4, 8, "Venomous Ravager", 5, zone.Gorgrond)
+		FIZ_AddMob(1708, 4, 8, "Wild Mandragora", 5, zone.Gorgrond)
+		FIZ_AddMob(1708, 4, 8, "NoxiousSproutling", 1, zone.Gorgrond)
+		-- FIZ_AddMob(1708, 4, 8, "lvl 100 mobs at Blackrock Foundry", ?, zone.Gorgrond) -- Unknown ammount of rep., probably variable
+	-- Vol'jin's Spear 1681
+		FIZ_AddItems(1681, 4, 8, 2500, {[112113] = 1, [112119] = 1, [112121] = 1, [112124] = 1, [112126] = 1, [112127] = 1, [112131] = 1})
+		FIZ_AddMob(1681, 4, 8, 82876, 2500, zone.Ashran)
+		FIZ_AddQuest(1681, 4, 8, 37475, 500)
+		FIZ_AddQuest(1681, 4, 8, 37476, 500)
+		FIZ_AddQuest(1681, 4, 8, 37477, 500)
+		FIZ_AddQuest(1681, 4, 8, 37478, 500)
+		FIZ_AddQuest(1681, 4, 8, 37479, 500)
+		FIZ_AddQuest(1681, 4, 8, 37480, 500)
+		FIZ_AddQuest(1681, 4, 8, 37295, 500)
+		FIZ_AddQuest(1681, 4, 8, 37299, 500)
+		
 	end
 	-- Steamwheedle Cartel
 	-- Booty Bay 21
@@ -2146,6 +2212,27 @@ zone.Blackrock_Foundry = 988			-- Blackrock Foundry
 		FIZ_AddQuest(1435, 1, 8, 32708, 300)
 		FIZ_AddMob(1435, 1, 5, 1, 30, zone.Throne_of_Thunder)
 		FIZ_AddMob(1435, 1, 8, 3, 30, zone.Throne_of_Thunder)
+	
+	-- Warlords of Draenor
+	-- Arakkoa Outcasts 1515
+		FIZ_AddMob(1515, 4, 8, "Special lvl 100 mobs at Skettis", 15, zone.Spires_of_Arak)
+		FIZ_AddMob(1515, 4, 8, "Normal lvl 100 mobs at Skettis", 5, zone.Spires_of_Arak)
+		FIZ_AddMob(1515, 4, 8, "Special lvl 100 mobs at Lost Veil Anzu", 15, zone.Spires_of_Arak)
+		FIZ_AddMob(1515, 4, 8, "Normal lvl 100 mobs at Lost Veil Anzu", 5, zone.Spires_of_Arak)
+		FIZ_AddItem(1515, 4, 8, 2500, {[117492] = 1})
+	-- Steamwheedle Preservation Society 1711
+		FIZ_AddQuest(1711, 4, 8, 35147, 250, {[118099] = 20})
+		FIZ_AddQuest(1711, 4, 8, 37125, 350, {[118100] = 1})
+		FIZ_AddQuest(1711, 4, 8, 37210, 500, {[118654] = 1})
+		FIZ_AddQuest(1711, 4, 8, 37211, 500, {[118655] = 1})
+		FIZ_AddQuest(1711, 4, 8, 37221, 500, {[118656] = 1})
+		FIZ_AddQuest(1711, 4, 8, 37222, 500, {[118657] = 1})
+		FIZ_AddQuest(1711, 4, 8, 37223, 500, {[118658] = 1})
+		FIZ_AddQuest(1711, 4, 8, 37224, 500, {[118659] = 1})
+		FIZ_AddQuest(1711, 4, 8, 37225, 500, {[118660] = 1})
+		FIZ_AddQuest(1711, 4, 8, 37226, 500, {[118661] = 1})
+		FIZ_AddQuest(1711, 4, 8, 37520, 500, {[120172] = 1})
+
 	-- Dead Factions
 	-- Shen'dralar 809
 		FIZ_AddQuest(809, 1, 8, 6, 1)
