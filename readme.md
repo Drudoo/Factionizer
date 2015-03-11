@@ -10,6 +10,11 @@ next reputation level and how you can best gain this reputation.
 -------
 - Finish updating WoD factions
 
+
+## Change Log
+-------
+- 2015-03-11: Started updating Laughing Skull Orcs and Sha'tari
+
 ## Slash commands
 	/fz help	Show supported slash commands
 	/fz about	Show version info
