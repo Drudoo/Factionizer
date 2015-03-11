@@ -1,10 +1,10 @@
-# Factionizer - A faction reputation management tool
+## Factionizer - A faction reputation management tool
 --------------------------------------------------
 
-# To Do 
+## To Do 
 -------
 
-# Slash commands
+## Slash commands
 --------------
 /fz help	Show supported slash commands
 /fz about	Show version info
