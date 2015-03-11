@@ -1,7 +1,7 @@
-## Interface: 60000
+## Interface: 60100
 ## Title: Factionizer
 ## Version: @project-version@
-## Author: gOOvER (Scheol), Alleria-EU
+## Author: Drudoo, The Maelstrom-EU
 ## URL: http://wow.curseforge.com/addons/factionizer/
 ## Description: Tells you what you can do to improve your faction
 ## Notes: Tells you what you can do to improve your factions
