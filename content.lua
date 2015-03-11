@@ -2219,7 +2219,7 @@ zone.Blackrock_Foundry = 988			-- Blackrock Foundry
 		FIZ_AddMob(1515, 4, 8, "Normal lvl 100 mobs at Skettis", 5, zone.Spires_of_Arak)
 		FIZ_AddMob(1515, 4, 8, "Special lvl 100 mobs at Lost Veil Anzu", 15, zone.Spires_of_Arak)
 		FIZ_AddMob(1515, 4, 8, "Normal lvl 100 mobs at Lost Veil Anzu", 5, zone.Spires_of_Arak)
-		FIZ_AddItem(1515, 4, 8, 2500, {[117492] = 1})
+		FIZ_AddItems(1515, 4, 8, 2500, {[117492] = 1})
 	-- Steamwheedle Preservation Society 1711
 		FIZ_AddQuest(1711, 4, 8, 35147, 250, {[118099] = 20})
 		FIZ_AddQuest(1711, 4, 8, 37125, 350, {[118100] = 1})
