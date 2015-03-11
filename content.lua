@@ -796,7 +796,7 @@ zone.Blackrock_Foundry = 988			-- Blackrock Foundry
 		FIZ_AddQuest(1387, 4, 8, 32575, 150)
 		FIZ_AddQuest(1387, 4, 8, 32583, 200)
 	-- Warlords of Draenor
-	-- Council og Exarchs 1731
+	-- Council of Exarchs 1731
 		FIZ_AddMob(1731, 4, 8, "Special lvl 100 mobs at Darktide Roost", 15, zone.Shadowmoon_Valley_WoD) 
 		FIZ_AddMob(1731, 4, 8, "Normal lvl 100 mobs at Darktide Roost", 5, zone.Shadowmoon_Valley_WoD) 
 		FIZ_AddMob(1731, 4, 8, "Special lvl 100 mobs at Socrethar's Rise", 15, zone.Shadowmoon_Valley_WoD) 
@@ -818,6 +818,10 @@ zone.Blackrock_Foundry = 988			-- Blackrock Foundry
 		FIZ_AddMob(1710, 4, 5, "Shadowbourne Felcaster", 5, zone.Talador) --Mob data is unreliable
 		FIZ_AddMob(1710, 4, 5, "Fel Spark", 1, zone.Talador) --Mob data is unreliable
 		-- FIZ_AddMob(1711, 4, 8, "lvl 100 mobs at Bladefury Hold", ?, zone.Talador) --No specific data on particular mobs
+		FIZ_AddMob(1710, 4, 4, "Archmagus Tekar", 50, zone.Talador)
+		FIZ_AddMob(1710, 1, 8, "Grom'kar Warbeast", 22, zone.Talador)
+		FIZ_AddMob(1710, 1, 8, "Grom'kar Sharpshooter", 19, zone.Talador)
+		FIZ_AddMob(1710, 1, 8, "Grom'kar Siegebreaker", 19, zone.Talador)
 	-- Wrynn's Vanguard 1682
 		--ADD CURRENCY: Artifact Fragment - 5 rep ea - currency-ID = 944
 		FIZ_AddItems(1682, 4, 8, 2500, {[112113] = 1, [112015] = 1, [112120] = 1, [112122] = 1, [112123] = 1, [112125] = 1, [112128] = 1})
@@ -1313,6 +1317,16 @@ zone.Blackrock_Foundry = 988			-- Blackrock Foundry
 		FIZ_AddMob(1708, 4, 8, "Venomous Ravager", 5, zone.Gorgrond)
 		FIZ_AddMob(1708, 4, 8, "Wild Mandragora", 5, zone.Gorgrond)
 		FIZ_AddMob(1708, 4, 8, "NoxiousSproutling", 1, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 8, "Gruesome Torturer", 19, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 8, "Hulking Brute", 19, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 8, "Iron Bloodburner", 19, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 8, "Iron Bulwark", 19, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 8, "Iron Cauterizer", 19, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 8, "Iron Deadshot", 19, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 8, "Iron Warden", 19, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 6, "Irontusk Trampler", 19, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 5, "Nultra", 19, zone.Gorgrond)
+		FIZ_AddMob(1708, 1, 8, "Iron Enforcer", 16, zone.Gorgrond)
 		-- FIZ_AddMob(1708, 4, 8, "lvl 100 mobs at Blackrock Foundry", ?, zone.Gorgrond) -- Unknown ammount of rep., probably variable
 	-- Vol'jin's Spear 1681
 		FIZ_AddItems(1681, 4, 8, 2500, {[112113] = 1, [112119] = 1, [112121] = 1, [112124] = 1, [112126] = 1, [112127] = 1, [112131] = 1})
