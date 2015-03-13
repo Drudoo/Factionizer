@@ -804,6 +804,10 @@ zone.Blackrock_Foundry = 988			-- Blackrock Foundry
 		FIZ_AddMob(1731, 4, 8, "Special lvl 100 mobs at Pillars of Fate", 15, zone.Shadowmoon_Valley_WoD) 
 		FIZ_AddMob(1731, 4, 8, "Normal lvl 100 mobs at Pillars of Fate", 5, zone.Shadowmoon_Valley_WoD) 
 	-- Sha'tari Defense 1710
+		FIZ_AddMob(1710, 4, 4, "Archmagus Tekar", 50, zone.Talador)
+		FIZ_AddMob(1710, 1, 8, "Grom'kar Warbeast", 22, zone.Talador)
+		FIZ_AddMob(1710, 1, 8, "Grom'kar Sharpshooter", 19, zone.Talador)
+		FIZ_AddMob(1710, 1, 8, "Grom'kar Siegebreaker", 19, zone.Talador)
 		FIZ_AddMob(1710, 4, 5, "Rune Ritualist", 16, zone.Talador) --Mob data is unreliable
 		FIZ_AddMob(1710, 4, 5, "Sargerei Fiendspeaker and Ritualist", 8, zone.Talador) --Mob data is unreliable
 		FIZ_AddMob(1710, 4, 5, "Conniving Deathblade", 8, zone.Talador) --Mob data is unreliable
@@ -818,10 +822,7 @@ zone.Blackrock_Foundry = 988			-- Blackrock Foundry
 		FIZ_AddMob(1710, 4, 5, "Shadowbourne Felcaster", 5, zone.Talador) --Mob data is unreliable
 		FIZ_AddMob(1710, 4, 5, "Fel Spark", 1, zone.Talador) --Mob data is unreliable
 		-- FIZ_AddMob(1711, 4, 8, "lvl 100 mobs at Bladefury Hold", ?, zone.Talador) --No specific data on particular mobs
-		FIZ_AddMob(1710, 4, 4, "Archmagus Tekar", 50, zone.Talador)
-		FIZ_AddMob(1710, 1, 8, "Grom'kar Warbeast", 22, zone.Talador)
-		FIZ_AddMob(1710, 1, 8, "Grom'kar Sharpshooter", 19, zone.Talador)
-		FIZ_AddMob(1710, 1, 8, "Grom'kar Siegebreaker", 19, zone.Talador)
+		
 	-- Wrynn's Vanguard 1682
 		--ADD CURRENCY: Artifact Fragment - 5 rep ea - currency-ID = 944
 		FIZ_AddItems(1682, 4, 8, 2500, {[112113] = 1, [112015] = 1, [112120] = 1, [112122] = 1, [112123] = 1, [112125] = 1, [112128] = 1})
