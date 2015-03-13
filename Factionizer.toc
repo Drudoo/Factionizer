@@ -1,13 +1,15 @@
 ## Interface: 60100
 ## Title: Factionizer
 ## Version: @project-version@
-## Author: Drudoo, The Maelstrom-EU
-## URL: http://wow.curseforge.com/addons/factionizer/
+## Author: Drudoo, 
+## X-Author-Server: The Maelstrom-EU
+## X-Author-Faction: Alliance 
 ## Description: Tells you what you can do to improve your faction
 ## Notes: Tells you what you can do to improve your factions
 ## SavedVariables: FIZ_Data
 ## SavedVariablesPerCharacter: FIZ_Suppressed
 ## OptionalDeps: Ace3, LibQTip-1.0, LibStub, CallbackHandler-1.0
+## X-credits: gOOvER (Scheol) Alleria-EU, Urbin Dun-Morogh (EU)
 
 embeds.xml
 content.lua
